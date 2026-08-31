@@ -112,6 +112,15 @@
   .flag.ok{background:var(--gobg);border-color:#c8ded9;border-left-color:var(--go);color:#0b5f56}
   .flag.ok b{color:var(--go)}
   .pri.pok{background:var(--go);color:#fff}
+  .opts{margin:13px 0 0;border:1px solid var(--line);border-radius:5px;overflow:hidden}
+  .opts-toggle{display:block;width:100%;padding:10px 12px;background:var(--wash);border:none;
+               text-align:left;font-size:13.5px;font-weight:600;color:var(--ink);cursor:pointer}
+  .opts-toggle:hover{background:#f0f0ed}
+  .opts-list{padding:12px;background:var(--paper);border-top:1px solid var(--line)}
+  .opt{padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .opt:last-child{border-bottom:none}
+  .opt b{color:var(--go);font-weight:600}
+  .opt p{margin:4px 0 0;color:var(--mid);font-size:13px;line-height:1.4}
   hr{border:0;border-top:1px solid var(--line);margin:36px 0 0}
   footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
          font-size:11.5px;color:var(--light)}
@@ -257,15 +266,41 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
   <div class="dhead"><span class="dt">Sun 11 Oct</span><span class="pl">Land Cairns → Cape Tribulation</span><span class="dr">140 km · 2 h 30</span></div>
   <div class="dbody">
     <div class="slot"><div class="w">Morning</div><div class="b"><b>Collect the campervan</b>
-      <p>Camperman depot, Cairns. Allow an hour for paperwork and the walkaround. A$500 bond on a
-      credit card. <b>Big food shop here</b> — Cape Tribulation has no supermarket and the village
-      store prices accordingly.</p>
+      <p>Land 8:30 AM. Van pickup ~10:00 AM at Camperman depot, Cairns. Allow an hour for paperwork and walkaround. A$500 bond on a credit card. <b>Big food shop here</b> — Cape Tribulation has no supermarket and the village store prices accordingly.</p>
       <div class="links"><a class="lk" href="https://www.campermanaustralia.com/campervan-hire-rental-cairns/">Camperman Cairns →</a></div>
     </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Drive north</b>
+    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Drive north to Cape Tribulation</b>
       <p>Captain Cook Highway up the coast past Port Douglas, then the <b>Daintree River cable
-      ferry</b>, which runs continuously. Road narrows and winds after that. Don't drive it after
-      dark — cassowaries and no lighting.</p>
+      ferry</b>, which runs continuously. Road narrows and winds after. Don't drive after
+      dark — cassowaries and no lighting. Arrive Cape Trib ~12:30 PM. Several hours until sundown (5–6 PM).</p>
+    </div></div>
+    <div class="slot"><div class="w">Evening</div><div class="b"><b>What to do this afternoon?</b>
+      <p>Depending on activity, you have time for options ranging from 90 minutes to 2.5 hours. Click below to see what's available.</p>
+      <div class="opts">
+        <button class="opts-toggle">Activity options ▼</button>
+        <div class="opts-list" style="display:none;">
+          <div class="opt">
+            <b>Mossman Gorge</b> (2–2.5 hours)
+            <p>Rainforest circuit walk (2.4 km) through lush canopy with cold creek swimming holes. Moderate pace, multiple swim breaks. Departs every 20 min on shuttle.</p>
+          </div>
+          <div class="opt">
+            <b>Turtle snorkel</b> (2 hours + boat)
+            <p>Half-day reef snorkel at Mackay/Undine Reef. Guaranteed turtles, snorkelling gear and instruction included. Later return to camp, sunset arrival.</p>
+          </div>
+          <div class="opt">
+            <b>Cape Trib Fruit Farm</b> (90 minutes)
+            <p>Guided walk through tropical orchards with local fruit tasting. Low-intensity, good for easing into the region after travel.</p>
+          </div>
+          <div class="opt">
+            <b>Beach and swimming</b> (flexible, 1–2 hours)
+            <p>Explore Myall Beach, local swimming holes at casual pace. Light activity to settle in after long flights.</p>
+          </div>
+          <div class="opt">
+            <b>Rest and explore</b> (flexible)
+            <p>Settle at campsite, cook dinner, explore surroundings at your own pace. No structured activity.</p>
+          </div>
+        </div>
+      </div>
     </div></div>
     <div class="sleep"><b>Sleep:</b> <a href="https://www.capetribcamping.com.au/">Cape Trib Camping</a>
       (beachfront) or <a href="https://www.pksjunglevillage.com.au/">PK's Jungle Village</a>.</div>
@@ -536,6 +571,7 @@ Passions of Paradise fare, Queensland licence rules. Everything else indicative.
 
 <script>
 (function(){
+  // Booking checklist
   var KEY = 'qld-booking-2026';
   var boxes = document.querySelectorAll('#booking input[type=checkbox]');
   var prog  = document.getElementById('prog');
@@ -566,6 +602,20 @@ Passions of Paradise fare, Queensland licence rules. Everything else indicative.
     });
   });
   paint();
+
+  // Activity options toggles
+  document.querySelectorAll('.opts-toggle').forEach(function(button){
+    button.addEventListener('click', function(){
+      var list = this.nextElementSibling;
+      if (list.style.display === 'none') {
+        list.style.display = 'block';
+        this.textContent = this.textContent.replace('▼', '▲');
+      } else {
+        list.style.display = 'none';
+        this.textContent = this.textContent.replace('▲', '▼');
+      }
+    });
+  });
 })();
 </script>
 </body>
