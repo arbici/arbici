@@ -113,16 +113,18 @@
   .flag.ok b{color:var(--go)}
   .pri.pok{background:var(--go);color:#fff}
   .opts{margin:13px 0 0}
-  .opts-toggle{display:block;width:auto;padding:0;background:none;border:none;font-size:13.5px;
-               font-weight:400;color:var(--go);cursor:pointer;text-decoration:none}
+  .opts-toggle{display:inline-block;width:auto;padding:0;background:none;border:none;outline:none;
+               font-family:var(--sans);font-size:13px;font-weight:400;color:var(--go);
+               cursor:pointer;text-transform:none;letter-spacing:normal}
   .opts-toggle:hover{text-decoration:underline}
-  .opts-list{margin:8px 0 0;padding:12px;background:var(--wash);border-left:2px solid var(--go);
-             border-radius:4px}
-  .opt{padding:10px 0;font-size:13.5px;line-height:1.4}
-  .opt:last-child{padding-bottom:0}
-  .opt b{color:var(--ink);font-weight:600;display:block}
-  .opt small{color:var(--light);font-size:12px;font-weight:400}
-  .opt p{margin:3px 0 0;color:var(--mid);font-size:13px;line-height:1.4}
+  .opts-list{margin:9px 0 0;padding:2px 0 0 13px;border-left:2px solid var(--line)}
+  .oitem{padding:9px 0;font-size:13.5px;line-height:1.5;text-transform:none;letter-spacing:normal;
+         background:none;border:0}
+  .oitem:first-child{padding-top:2px}
+  .oitem:last-child{padding-bottom:2px}
+  .oitem b{color:var(--ink);font-weight:600;text-transform:none;letter-spacing:normal}
+  .oitem .dur{color:var(--light);font-size:12px;font-weight:400;margin-left:6px}
+  .oitem p{margin:3px 0 0;color:var(--mid);font-size:13.5px;line-height:1.5}
   hr{border:0;border-top:1px solid var(--line);margin:36px 0 0}
   footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
          font-size:11.5px;color:var(--light)}
@@ -281,24 +283,24 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <div class="opts">
         <button class="opts-toggle">Other options ▼</button>
         <div class="opts-list" style="display:none;">
-          <div class="opt">
-            <b>Mossman Gorge</b> <small>2–2.5 hours</small>
+          <div class="oitem">
+            <b>Mossman Gorge</b> <span class="dur">2–2.5 hours</span>
             <p>Rainforest circuit walk through lush canopy with cold creek swimming holes. Moderate pace, multiple swim breaks.</p>
           </div>
-          <div class="opt">
-            <b>Turtle snorkel</b> <small>2 hours + boat</small>
+          <div class="oitem">
+            <b>Turtle snorkel</b> <span class="dur">2 hours + boat</span>
             <p>Half-day reef snorkel at Mackay/Undine Reef. Guaranteed turtles, snorkelling gear included. Later return to camp.</p>
           </div>
-          <div class="opt">
-            <b>Cape Trib Fruit Farm</b> <small>90 minutes</small>
+          <div class="oitem">
+            <b>Cape Trib Fruit Farm</b> <span class="dur">90 minutes</span>
             <p>Guided walk through tropical orchards with fruit tasting. Low-intensity, good for easing in after travel.</p>
           </div>
-          <div class="opt">
-            <b>Beach and swimming</b> <small>flexible, 1–2 hours</small>
+          <div class="oitem">
+            <b>Beach and swimming</b> <span class="dur">flexible, 1–2 hours</span>
             <p>Explore Myall Beach and local swimming holes at your pace. Light activity to settle after long flights.</p>
           </div>
-          <div class="opt">
-            <b>Rest and explore</b> <small>flexible</small>
+          <div class="oitem">
+            <b>Rest and explore</b> <span class="dur">flexible</span>
             <p>Settle at campsite, cook dinner, explore at your own pace. No structured activity.</p>
           </div>
         </div>
@@ -329,16 +331,16 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <div class="opts">
         <button class="opts-toggle">Other options ▼</button>
         <div class="opts-list" style="display:none;">
-          <div class="opt">
-            <b>Daintree River wildlife cruise</b> <small>1–2 hours</small>
+          <div class="oitem">
+            <b>Daintree River wildlife cruise</b> <span class="dur">1–2 hours</span>
             <p>Go early for crocodile basking. Electric boat runs silent for better wildlife encounters. Crocodiles, birds, river ecology.</p>
           </div>
-          <div class="opt">
-            <b>Mossman Gorge circuit</b> <small>2–2.5 hours</small>
+          <div class="oitem">
+            <b>Mossman Gorge circuit</b> <span class="dur">2–2.5 hours</span>
             <p>2.4 km rainforest walk with multiple swimming holes in cool creek. Continuous shuttle access to the centre.</p>
           </div>
-          <div class="opt">
-            <b>Dubuji & Kulki boardwalks</b> <small>1 hour</small>
+          <div class="oitem">
+            <b>Dubuji & Kulki boardwalks</b> <span class="dur">1 hour</span>
             <p>Short rainforest and mangrove walks off the road, both free. Cape Trib lookout for the rainforest-meets-reef view.</p>
           </div>
         </div>
@@ -363,16 +365,16 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <div class="opts">
         <button class="opts-toggle">Other options ▼</button>
         <div class="opts-list" style="display:none;">
-          <div class="opt">
-            <b>Cape Trib Horse Rides</b> <small>90 minutes</small>
+          <div class="oitem">
+            <b>Cape Trib Horse Rides</b> <span class="dur">90 minutes</span>
             <p>Rainforest meander through creek crossings, then beach ride through shallow turquoise water. All levels welcome.</p>
           </div>
-          <div class="opt">
-            <b>Dubuji & Kulki boardwalks</b> <small>1 hour</small>
+          <div class="oitem">
+            <b>Dubuji & Kulki boardwalks</b> <span class="dur">1 hour</span>
             <p>Easy short rainforest and mangrove walks, both free. Cape Trib lookout for the rainforest-meets-reef view.</p>
           </div>
-          <div class="opt">
-            <b>Beach exploration & swimming</b> <small>flexible</small>
+          <div class="oitem">
+            <b>Beach exploration & swimming</b> <span class="dur">flexible</span>
             <p>Explore Myall Beach, local swimming holes. Light activity to settle in.</p>
           </div>
         </div>
@@ -397,16 +399,16 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <div class="opts">
         <button class="opts-toggle">Other options ▼</button>
         <div class="opts-list" style="display:none;">
-          <div class="opt">
-            <b>Esplanade Lagoon</b> <small>1–2 hours</small>
+          <div class="oitem">
+            <b>Esplanade Lagoon</b> <span class="dur">1–2 hours</span>
             <p>Free saltwater pool on the waterfront (no beach due to tidal mudflats). Main social gathering spot. <a href="https://www.google.com/search?q=Cairns+Esplanade+Lagoon&tbm=isch" style="color:var(--go)">Photos →</a></p>
           </div>
-          <div class="opt">
-            <b>Aquarium & Royal Botanic Gardens</b> <small>2–3 hours</small>
+          <div class="oitem">
+            <b>Aquarium & Royal Botanic Gardens</b> <span class="dur">2–3 hours</span>
             <p>Indoor marine exhibits and tropical garden walk. Relaxed pace, good for a low-key afternoon.</p>
           </div>
-          <div class="opt">
-            <b>Markets & street food</b> <small>1–2 hours</small>
+          <div class="oitem">
+            <b>Markets & street food</b> <span class="dur">1–2 hours</span>
             <p>Local craft stalls and food vendors. Casual wandering, grab lunch.</p>
           </div>
         </div>
@@ -429,12 +431,12 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <div class="opts">
         <button class="opts-toggle">Reef tour options ▼</button>
         <div class="opts-list" style="display:none;">
-          <div class="opt">
-            <b>Passions of Paradise catamaran</b> <small>9 hours (8 AM–5 PM)</small>
+          <div class="oitem">
+            <b>Passions of Paradise catamaran</b> <span class="dur">9 hours (8 AM–5 PM)</span>
             <p>25m sailing catamaran to two outer reef sites picked by conditions. Two hours water time, lunch, snorkelling gear and instruction included.</p>
           </div>
-          <div class="opt">
-            <b>Helicopter landing on Vlasoff Cay</b> <small>4–5 hours</small>
+          <div class="oitem">
+            <b>Helicopter landing on Vlasoff Cay</b> <span class="dur">4–5 hours</span>
             <p>Rare bare sandbank in open ocean. Small group, snorkelling and picnic. Premium experience, higher cost.</p>
           </div>
         </div>
@@ -456,16 +458,16 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <div class="opts">
         <button class="opts-toggle">Activity options ▼</button>
         <div class="opts-list" style="display:none;">
-          <div class="opt">
-            <b>Millaa Millaa waterfall circuit</b> <small>4 hours</small>
+          <div class="oitem">
+            <b>Millaa Millaa waterfall circuit</b> <span class="dur">4 hours</span>
             <p>Scenic loop drive connecting three waterfalls. Stop to swim and bathe in each. Millaa Millaa Falls is the famous one (shampoo advert). Free, no booking.</p>
           </div>
-          <div class="opt">
-            <b>Curtain Fig Tree</b> <small>1 hour</small>
+          <div class="oitem">
+            <b>Curtain Fig Tree</b> <span class="dur">1 hour</span>
             <p>500-year-old strangler fig draped across the valley. Short rainforest walk to see it. Unique and iconic.</p>
           </div>
-          <div class="opt">
-            <b>Lake Tinaroo scenic drive</b> <small>flexible</small>
+          <div class="oitem">
+            <b>Lake Tinaroo scenic drive</b> <span class="dur">flexible</span>
             <p>Scenic lake views, optional kayaking or picnic. Flexible timing.</p>
           </div>
         </div>
@@ -487,13 +489,13 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <div class="opts">
         <button class="opts-toggle">Activity options ▼</button>
         <div class="opts-list" style="display:none;">
-          <div class="opt">
-            <b>Skydive Mission Beach</b> <small>half day</small>
+          <div class="oitem">
+            <b>Skydive Mission Beach</b> <span class="dur">half day</span>
             <p>Australia's highest tandem jump (15,000 ft), only one landing on a beach. 60 seconds of freefall over the reef. Morning slot best for weather.</p>
             <div class="links"><a class="lk" href="https://www.skydive.com.au/locations/mission-beach/">Skydive Mission Beach <span class="pr">A$379+ · €230+</span></a></div>
           </div>
-          <div class="opt">
-            <b>Tully River rafting</b> <small>full day</small>
+          <div class="oitem">
+            <b>Tully River rafting</b> <span class="dur">full day</span>
             <p>Grade 3–4 rapids, pickup an hour away. Dam-released so water guaranteed year-round. A$35 river levy on the day. Can't combine with skydive.</p>
             <div class="links"><a class="lk" href="https://www.ragingthunder.com.au/tully-river-rafting">Raging Thunder <span class="pr">A$184+ · €110+</span></a></div>
           </div>
