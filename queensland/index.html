@@ -93,6 +93,18 @@
   .who label.nico{background:#eef1f7;border-color:#ccd4e2;color:#3f5480}
   .who label.frodo{background:#f5f0f7;border-color:#dbcde0;color:#6c4478}
   .prog{font-size:12.5px;color:var(--light);margin:8px 0 0}
+  .total{background:var(--paper);border:1px solid var(--line);border-radius:7px;
+         overflow:hidden;margin:18px 0 0}
+  .total .tl{display:flex;justify-content:space-between;gap:16px;padding:10px 16px;
+             border-bottom:1px solid var(--line);font-size:13.6px}
+  .total .tl:last-child{border-bottom:0}
+  .total .tl span{color:var(--mid)}
+  .total .tl b{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+  .total .tl b small{color:var(--light);font-weight:400;margin-left:6px}
+  .total .grand{background:var(--wash)}
+  .total .grand span{color:var(--ink);font-weight:600}
+  .total .grand b{font-family:var(--serif);font-size:19px;font-weight:400;color:var(--go)}
+  .total .grand b small{font-family:var(--sans);font-size:12px}
   .note{font-size:13.2px;color:var(--mid);margin:10px 0 0}
   .flag{background:var(--warnbg);border:1px solid #f0d3c5;border-left:3px solid var(--warn);
         border-radius:6px;padding:12px 15px;font-size:13.5px;color:#7d3416;margin:12px 0 0}
@@ -124,15 +136,9 @@
   <div class="fact"><b>2</b><small>festival days</small></div>
 </div>
 
-<div class="flag"><b>Van not booked.</b> Frodo confirms today. Javi books tomorrow once the number
-is fixed. Camperman Juliette 3, Cairns → Airlie, quoted at <b>A$1,770 per van</b> including GST:
-<br>· 10 days @ A$109 — A$1,090
-<br>· Afterhours pickup fee — A$110
-<br>· Airlie Beach drop-off fee — A$250
-<br>· Administration fee — A$180
-<br>· Optional extras: tyre &amp; windscreen cover A$100, table &amp; two chairs A$40 — A$140
-<br><br>Three of us, one van: <b>A$590 each</b> · €355. Four of us, two vans: <b>A$885 each</b> · €530,
-and fuel doubles across two vehicles.</div>
+<div class="flag"><b>Van not booked.</b> Frodo confirms today. Javi books tomorrow. Camperman,
+10 days, Cairns → Airlie. At four, two Juliette 3 at A$1,770 each. At three, one Paradise Family 5
+at A$1,930.</div>
 
 <div class="flag"><b>Open: we have no way of getting from Brisbane to Woodfordia.</b>
 It is roughly 70 km, about an hour. The official EFF Express shuttle page currently returns a 404 and
@@ -157,8 +163,8 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
 
     <tr><td class="chk"><input type="checkbox" data-k="van"></td>
       <td class="wht"><a href="https://www.campermanaustralia.com/">Campervan, 10 days</a>
-        <small>Cairns 11 Oct → Airlie 20 Oct. A$1,770 per van, all fees in. Number of vans depends on final headcount. Booking tomorrow</small></td>
-      <td class="num">A$590–885<small>€355–530</small></td><td><span class="dri javi">Javi</span></td><td><span class="pri p1">First</span></td></tr>
+        <small>Cairns 11 Oct → Airlie 20 Oct. Two Juliette 3 at four, one Paradise Family 5 at three. Breakdown in the note above. Booking tomorrow</small></td>
+      <td class="num">A$643–885<small>€386–530</small></td><td><span class="dri javi">Javi</span></td><td><span class="pri p1">First</span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="fest"></td>
       <td class="wht"><a href="https://events.humanitix.com/earth-frequency-festival-2026/tickets">Earth Frequency tickets</a>
@@ -208,6 +214,16 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
 </table>
 <p class="prog" id="prog"></p>
 <p class="note">Frodo holds the two items that can wait longest.</p>
+
+<h2>Total per person</h2>
+<div class="total">
+  <div class="tl"><span>Bookings, per the table above</span><b>A$2,810–3,078<small>€1,686–1,847</small></b></div>
+  <div class="tl"><span>Fuel, ~1,200 km</span><b>A$115–160<small>€69–96</small></b></div>
+  <div class="tl"><span>Food and drink, 15 days, cooking in the van</span><b>A$1,075<small>€645</small></b></div>
+  <div class="tl grand"><span>On the ground, at three</span><b>A$4,000<small>€2,400</small></b></div>
+  <div class="tl grand"><span>On the ground, at four</span><b>A$4,313<small>€2,590</small></b></div>
+</div>
+<p class="note">International flights on top. The skydive is optional and adds A$580 · €350.</p>
 
 <hr>
 <h2>Day by day</h2>
@@ -460,15 +476,6 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <p>Bring your own food — it's allowed and festival meals run A$18–25.</p>
     </div></div>
     <div class="sleep"><b>Sleep:</b> Woodfordia.</div>
-  </div>
-</div>
-
-
-    <div class="slot"><div class="w">Evening</div><div class="b"><b>Camp, then go</b>
-      <p>Camping is included in the ticket. Bring your own food — it's allowed and festival meals run
-      A$18–25.</p>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> camping at Woodfordia.</div>
   </div>
 </div>
 
