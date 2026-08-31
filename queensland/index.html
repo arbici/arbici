@@ -84,6 +84,10 @@
   .who label.nico{background:#eef1f7;border-color:#ccd4e2;color:#3f5480}
   .who label.frodo{background:#f5f0f7;border-color:#dbcde0;color:#6c4478}
   .prog{font-size:12.5px;color:var(--light);margin:8px 0 0}
+  .connbadge{font-size:11px;padding:1px 8px;border-radius:100px;border:1px solid var(--line);
+             background:var(--wash);color:var(--light);margin-left:4px;white-space:nowrap}
+  .connbadge.live{background:var(--gobg);border-color:#c8ded9;color:var(--go)}
+  .connbadge.down{background:var(--warnbg);border-color:#f0d3c5;color:var(--warn)}
   .total{background:var(--paper);border:1px solid var(--line);border-radius:7px;
          overflow:hidden;margin:18px 0 0}
   .total .tl{display:flex;justify-content:space-between;gap:16px;padding:10px 16px;
@@ -128,14 +132,9 @@
 </div>
 
 <a class="cta" href="./itinerary/">
-  <span><b>Open the day-by-day itinerary →</b>
-  <span>Every day's movement, plus everything on offer in each place with durations and costs.</span></span>
-  <span class="arw">→</span>
-</a>
-
-<a class="cta" href="./vote/">
-  <span><b>Vote on what we do →</b>
-  <span>Tick what you want at each stop. Everyone votes on the same page and it updates live.</span></span>
+  <span><b>Open the day-by-day itinerary, and vote →</b>
+  <span>Every day's movement and everything on offer, with durations and costs. Tick what you want
+  to do and everyone sees it live.</span></span>
   <span class="arw">→</span>
 </a>
 
@@ -250,7 +249,7 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <td class="num">A$580<small>€350</small></td><td><span class="dri each">Each of us</span></td><td><span class="pri p3">Later</span></td></tr>
   </tbody>
 </table>
-<p class="prog" id="prog"></p>
+<p class="prog"><span id="prog"></span> <span id="conn" class="connbadge wait">connecting…</span></p>
 
 <h2>Total per person</h2>
 <div class="total">
@@ -281,39 +280,87 @@ Passions of Paradise fare and sailing times, Queensland licence rules. Everythin
 
 </div>
 
-<script>
-(function(){
-  var KEY = 'qld-booking-2026';
-  var boxes = document.querySelectorAll('#booking input[type=checkbox]');
-  var prog  = document.getElementById('prog');
-  var state = {};
-  try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ state = {}; }
+<script type="module">
+// Shared booking state. Same Firebase project as the vote page.
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAijbzSIAeykHc_yhi5r6iaDX64R-T9nZo",
+  authDomain: "arbici-8b875.firebaseapp.com",
+  databaseURL: "https://arbici-8b875-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "arbici-8b875"
+};
+const LEGACY_KEY = 'qld-booking-2026';
 
-  var rows = Array.prototype.slice.call(document.querySelectorAll('#booking tbody tr'))
-    .filter(function(r){ return r.querySelectorAll('input[type=checkbox]').length; });
+const boxes = [...document.querySelectorAll('#booking input[type=checkbox]')];
+const rows  = [...document.querySelectorAll('#booking tbody tr')]
+                .filter(r => r.querySelectorAll('input[type=checkbox]').length);
+const prog  = document.getElementById('prog');
+const conn  = document.getElementById('conn');
 
-  function paint(){
-    var done = 0;
-    rows.forEach(function(r){
-      var bs = Array.prototype.slice.call(r.querySelectorAll('input[type=checkbox]'));
-      var all = bs.every(function(b){ return b.checked; });
-      r.classList.toggle('done', all);
-      if (all) done++;
-    });
-    prog.textContent = done + ' of ' + rows.length + ' done'
-      + (done === rows.length ? '. That is everything.' : '.');
-  }
+let state = {};
+let db = null, api = null, live = false;
 
-  boxes.forEach(function(b){
-    b.checked = !!state[b.dataset.k];
-    b.addEventListener('change', function(){
-      state[b.dataset.k] = b.checked;
-      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){}
-      paint();
-    });
+function paint(){
+  boxes.forEach(b => { b.checked = !!state[b.dataset.k]; });
+  let done = 0;
+  rows.forEach(r => {
+    const bs = [...r.querySelectorAll('input[type=checkbox]')];
+    const all = bs.every(b => b.checked);
+    r.classList.toggle('done', all);
+    if (all) done++;
   });
+  prog.textContent = done + ' of ' + rows.length + ' done'
+    + (done === rows.length ? '. That is everything.' : '.');
+}
+
+function status(kind, text){
+  conn.className = 'connbadge ' + kind;
+  conn.textContent = text;
+}
+
+boxes.forEach(b => b.addEventListener('change', async () => {
+  if (!db) { b.checked = !b.checked; return; }
+  const k = b.dataset.k, on = b.checked;
+  state[k] = on;
   paint();
-})();
+  try {
+    const r = api.ref(db, 'bookings/' + k);
+    on ? await api.set(r, true) : await api.remove(r);
+  } catch(e){ status('down', 'not saving'); }
+}));
+
+paint();
+status('wait', 'connecting…');
+
+try {
+  const [{ initializeApp }, mod] = await Promise.all([
+    import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"),
+    import("https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js")
+  ]);
+  api = mod;
+  db  = mod.getDatabase(initializeApp(FIREBASE_CONFIG));
+  mod.onValue(mod.ref(db, 'bookings'), async snap => {
+    const remote = snap.val();
+    // One-time lift of any ticks made before this list was shared.
+    if (!live && !remote) {
+      let legacy = {};
+      try { legacy = JSON.parse(localStorage.getItem(LEGACY_KEY) || '{}'); } catch(e){}
+      const keys = Object.keys(legacy).filter(k => legacy[k]);
+      if (keys.length) {
+        const seed = {};
+        keys.forEach(k => seed[k] = true);
+        try { await mod.set(mod.ref(db, 'bookings'), seed); } catch(e){}
+        try { localStorage.removeItem(LEGACY_KEY); } catch(e){}
+        return;
+      }
+    }
+    state = remote || {};
+    live = true;
+    status('live', 'shared, saving live');
+    paint();
+  }, () => status('down', 'offline, not saving'));
+} catch(e) {
+  status('down', 'offline, not saving');
+}
 </script>
 </body>
 </html>

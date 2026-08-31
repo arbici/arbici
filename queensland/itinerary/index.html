@@ -64,6 +64,48 @@
       white-space:nowrap}
   .ph:hover{border-bottom-style:solid}
 
+  /* voting layer */
+  .whobar{position:sticky;top:0;z-index:5;background:var(--wash);
+          padding:12px 0 11px;margin:14px 0 4px;border-bottom:1px solid var(--line)}
+  .whobar .lbl{font-size:10.5px;letter-spacing:.9px;text-transform:uppercase;color:var(--light);
+               font-weight:600;margin:0 0 7px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .chip{font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:100px;cursor:pointer;
+        border:1px solid var(--line);background:var(--paper);color:var(--mid);font-family:inherit}
+  .chip:hover{border-color:var(--go)}
+  .chip.on{background:var(--go);border-color:var(--go);color:#fff}
+  .connbadge{margin-left:auto;font-size:11px;padding:2px 9px;border-radius:100px;
+             border:1px solid var(--line);background:var(--paper);color:var(--light);white-space:nowrap}
+  .connbadge.live{background:var(--gobg);border-color:#c8ded9;color:var(--go)}
+  .connbadge.down{background:var(--warnbg);border-color:#f0d3c5;color:var(--warn)}
+
+  .oitem[data-opt]{display:flex;gap:11px;align-items:flex-start;cursor:pointer}
+  .oitem[data-opt] > .obody{flex:1;min-width:0}
+  .oitem[data-opt]:hover .tick{border-color:var(--go)}
+  .tick{width:19px;height:19px;flex-shrink:0;margin-top:2px;border-radius:5px;
+        border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;
+        font-size:12px;line-height:1;color:#fff;background:var(--paper)}
+  .tick.on{background:var(--go);border-color:var(--go)}
+  .voters{display:flex;gap:5px;margin:7px 0 0;flex-wrap:wrap;align-items:center}
+  .av{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:100px;
+      border:1px solid var(--line);background:var(--wash)}
+  .av.javi{background:#eef7f5;border-color:#c8ded9;color:#0f7a6e}
+  .av.sabas{background:#fdf1eb;border-color:#f0d3c5;color:#b4451c}
+  .av.nico{background:#eef1f7;border-color:#ccd4e2;color:#3f5480}
+  .av.frodo{background:#f5f0f7;border-color:#dbcde0;color:#6c4478}
+  .av.none{background:none;border:0;color:var(--light);font-weight:400;padding:2px 0}
+
+  .tally{background:var(--paper);border:1px solid var(--line);border-radius:7px;
+         margin:20px 0 0;overflow:hidden}
+  .tally h2{font-family:var(--serif);font-weight:400;font-size:18px;margin:0;
+            padding:12px 16px;border-bottom:1px solid var(--line);background:#fbfbfa}
+  .trow{display:flex;gap:14px;justify-content:space-between;padding:9px 16px;
+        border-bottom:1px solid var(--line);font-size:13.5px}
+  .trow:last-child{border-bottom:0}
+  .trow .k{color:var(--mid);flex-shrink:0}
+  .trow .v{text-align:right;font-weight:600}
+  .trow .v small{display:block;font-weight:400;color:var(--light);font-size:11.5px;margin-top:1px}
+
   .flag{background:var(--warnbg);border:1px solid #f0d3c5;border-left:3px solid var(--warn);
         border-radius:6px;padding:11px 14px;font-size:13.2px;color:#7d3416;margin:13px 0 0}
   .flag b{color:var(--warn)}
@@ -82,7 +124,13 @@
 <p class="sub">Sabas, Nico, Frodo &amp; Javi · 9–25 October 2026</p>
 <p class="sub">Each day shows the movement that is fixed, then everything on offer in that place.
 Items marked <span class="plan">Currently planned</span> are what the itinerary assumes.</p>
-<p class="sub"><a href="../vote/">Vote on what we actually do →</a></p>
+<p class="sub">Tap your name, then tick anything you want to do. Votes are shared, everyone sees the
+same page. <a href="#tally">Jump to the tally →</a></p>
+
+<div class="whobar">
+  <div class="lbl">I am</div>
+  <div class="chips" id="chips"></div>
+</div>
 
 <div class="day">
   <div class="dhead"><span class="dt">Fri 9 Oct</span><span class="pl">Fly out of Europe</span><span class="dr">~22 h + layover</span></div>
@@ -111,23 +159,23 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
 
     <div class="offer">
       <h3>On offer today</h3>
-      <div class="oitem">
+      <div class="oitem" data-opt="d11-mossman-gorge">
         <div class="oline"><b>Mossman Gorge</b><span class="dur">2–2.5 h</span><span class="plan">Currently planned</span></div>
         <p>Sits south of the Daintree ferry, so it is a stop on the drive north rather than a trip back
         later. Park at the Gorge Centre and take the shuttle in, private cars are not allowed up the
         access road. 2.4 km rainforest circuit with swimming holes along Rex Creek. Check the signage,
         the river rises fast after rain.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d11-four-mile-beach">
         <div class="oline"><b>Four Mile Beach, Port Douglas</b><span class="dur">45 min</span></div>
         <p>Directly on the route. Lunch stop and a swim before the ferry.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d11-cape-trib-fruit">
         <div class="oline"><b>Cape Trib Fruit Farm</b><span class="dur">90 min</span></div>
         <p>Guided walk through the orchards followed by a tasting of tropical fruit grown on site.
         Afternoon sessions. Low effort, good after a long flight.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d11-myall-beach-and">
         <div class="oline"><b>Myall Beach and a swim</b><span class="dur">flexible</span></div>
         <p>Arrive, set up, walk the beach. Nothing booked, nothing to plan.</p>
       </div>
@@ -151,7 +199,7 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
 
     <div class="offer">
       <h3>On offer today</h3>
-      <div class="oitem">
+      <div class="oitem" data-opt="d12-daintree-river-wildlife">
         <div class="oline"><b>Daintree River wildlife cruise</b><span class="dur">1 h</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Daintree+River+wildlife+cruise+crocodile" target="_blank" rel="noopener">Photos</a></div>
         <p>Go early. Crocodiles bask in the morning and the light is better. Solar Whisper is electric
         and silent so it gets closer without spooking them. Crocodiles, tree snakes, kingfishers.</p>
@@ -160,31 +208,31 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
           <a class="lk" href="https://www.crocodileexpress.com/our-cruises-and-rates/" target="_blank" rel="noopener">Crocodile Express</a>
         </div>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d12-ocean-safari-mackay">
         <div class="oline"><b>Ocean Safari, Mackay Reef</b><span class="dur">5 h · 11:30–16:30</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Mackay+Reef+Cape+Tribulation+snorkelling" target="_blank" rel="noopener">Photos</a></div>
         <p>25 minute ride out to two sites on Mackay Reef, roughly an hour in the water at each.
         Maximum 25 passengers. Turtles are common here. This is reef snorkelling straight off the
         beach at Cape Trib, separate from the outer reef day on the 15th.</p>
         <div class="links"><a class="lk" href="https://oceansafari.com.au/" target="_blank" rel="noopener">Ocean Safari →</a></div>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d12-jungle-surfing-canopy">
         <div class="oline"><b>Jungle Surfing canopy tour</b><span class="dur">2.5 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Jungle+Surfing+Cape+Tribulation+zipline" target="_blank" rel="noopener">Photos</a></div>
         <p>Nine ziplines between 15 and 130 metres, six platforms built into the trees, up to 15 m off
         the ground. Guided, no experience needed.</p>
         <div class="links"><a class="lk" href="https://www.junglesurfing.com.au/product/zipline-tour" target="_blank" rel="noopener">Jungle Surfing →</a></div>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d12-dubuji-and-kulki">
         <div class="oline"><b>Dubuji and Kulki boardwalks</b><span class="dur">1 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Dubuji+boardwalk+Cape+Tribulation" target="_blank" rel="noopener">Photos</a></div>
         <p>Short mangrove and rainforest walks off the road, both free. Cape Trib lookout for the
         rainforest-meets-reef view.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d12-daintree-night-walk">
         <div class="oline"><b>Daintree night walk</b><span class="dur">2 h, after dark</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Daintree+rainforest+night+walk+wildlife" target="_blank" rel="noopener">Photos</a></div>
         <p>Guided spotlighting through old-growth rainforest. White-lipped green tree frogs, rainforest
         dragons, pythons, possums, bioluminescent fungi, stick insects. Small groups, some operators
         run it with a biologist. The forest at night is a different place and no coach tour goes near it.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d12-pks-jungle-bar">
         <div class="oline"><b>PK's Jungle Bar</b><span class="dur">evening</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=PK%27s+Jungle+Village+Cape+Tribulation" target="_blank" rel="noopener">Photos</a></div>
         <p>Open till midnight, boardwalk straight from the bar onto Myall Beach.</p>
       </div>
@@ -203,33 +251,33 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
 
     <div class="offer">
       <h3>On offer today</h3>
-      <div class="oitem">
+      <div class="oitem" data-opt="d13-cape-trib-horse">
         <div class="oline"><b>Cape Trib Horse Rides</b><span class="dur">90 min · 11:00 or 14:30</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Cape+Trib+Horse+Rides+Myall+Beach" target="_blank" rel="noopener">Photos</a></div>
         <p>Running since 1981 and the only beach ride in the region. Rainforest and creek crossings,
         then onto Myall Beach and into the shallows. Walking pace, beginners fine. Book direct,
         cancellation inside 48 hours forfeits the full price.</p>
         <div class="links"><a class="lk" href="https://www.capetribhorserides.com.au/bookings" target="_blank" rel="noopener">Cape Trib Horse Rides <span class="pr">A$130 · €78</span></a></div>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d13-ocean-safari-mackay">
         <div class="oline"><b>Ocean Safari, Mackay Reef</b><span class="dur">5 h · morning or afternoon</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Mackay+Reef+Cape+Tribulation+snorkelling" target="_blank" rel="noopener">Photos</a></div>
         <p>Morning departure checks in 07:30 and is back 12:30, which leaves the afternoon free for the
         horse ride at 14:30. The two fit together on this day.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d13-jungle-surfing-canopy">
         <div class="oline"><b>Jungle Surfing canopy tour</b><span class="dur">2.5 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Jungle+Surfing+Cape+Tribulation+zipline" target="_blank" rel="noopener">Photos</a></div>
         <p>Nine ziplines through the canopy. Runs several times a day.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d13-freshwater-swimming-holes">
         <div class="oline"><b>Freshwater swimming holes</b><span class="dur">1–2 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Masons+swimming+hole+Cape+Tribulation" target="_blank" rel="noopener">Photos</a></div>
         <p>Mason's is the best known, a creek pool away from the sea and away from crocodiles.
         Small entry fee through the café.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d13-daintree-night-walk">
         <div class="oline"><b>Daintree night walk</b><span class="dur">2 h, after dark</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Daintree+rainforest+night+walk+wildlife" target="_blank" rel="noopener">Photos</a></div>
         <p>Guided spotlighting through old-growth rainforest. Frogs, rainforest dragons, pythons,
         possums, bioluminescent fungi. If it did not fit last night, it fits tonight.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d13-dubuji-and-kulki">
         <div class="oline"><b>Dubuji and Kulki boardwalks</b><span class="dur">1 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Dubuji+boardwalk+Cape+Tribulation" target="_blank" rel="noopener">Photos</a></div>
         <p>Free, short, and near camp.</p>
       </div>
@@ -253,21 +301,21 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
 
     <div class="offer">
       <h3>On offer today</h3>
-      <div class="oitem">
+      <div class="oitem" data-opt="d14-esplanade-lagoon">
         <div class="oline"><b>Esplanade Lagoon</b><span class="dur">1–2 h</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Cairns+Esplanade+Lagoon" target="_blank" rel="noopener">Photos</a></div>
         <p>Free saltwater pool on the waterfront. There is no swimmable beach in Cairns, the foreshore
         is tidal mudflat, which is exactly why the lagoon exists.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d14-crystal-cascades">
         <div class="oline"><b>Crystal Cascades</b><span class="dur">1–2 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Crystal+Cascades+Cairns" target="_blank" rel="noopener">Photos</a></div>
         <p>Free rainforest swimming holes about 20 minutes out of town, along a sealed access road with
         a flat creekside path. Quieter than anything in the city.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d14-aquarium-and-botanic">
         <div class="oline"><b>Aquarium and Botanic Gardens</b><span class="dur">2–3 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Cairns+Botanic+Gardens" target="_blank" rel="noopener">Photos</a></div>
         <p>Indoor marine exhibits and the tropical gardens, both central. Rain option.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d14-markets-and-street">
         <div class="oline"><b>Markets and street food</b><span class="dur">1–2 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Rusty%27s+Markets+Cairns" target="_blank" rel="noopener">Photos</a></div>
         <p>Rusty's Markets runs Friday to Sunday. Otherwise the night markets on the Esplanade.</p>
       </div>
@@ -290,14 +338,14 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
 
     <div class="offer">
       <h3>On offer today</h3>
-      <div class="oitem">
+      <div class="oitem" data-opt="d15-passions-of-paradise">
         <div class="oline"><b>Passions of Paradise</b><span class="dur">08:00–17:00 · up to 5 h at the reef</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Passions+of+Paradise+Great+Barrier+Reef" target="_blank" rel="noopener">Photos</a></div>
         <p>25 metre sailing catamaran to two outer reef sites, picked on the day for conditions from a
         pool of 24. Wetsuit, prescription masks and guided snorkelling included, plus buffet lunch.
         This is the trip's only outer-reef water time.</p>
         <div class="links"><a class="lk" href="https://passions.com.au/great-barrier-reef-tours/" target="_blank" rel="noopener">Passions of Paradise <span class="pr">A$275 · €165</span></a></div>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d15-helicopter-to-vlasoff">
         <div class="oline"><b>Helicopter to Vlasoff Cay</b><span class="dur">4–5 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Vlasoff+Cay+Great+Barrier+Reef" target="_blank" rel="noopener">Photos</a></div>
         <p>A bare sandbank in open ocean with snorkelling and a picnic, small group, far less time in
         the water. Roughly A$650. Cairns seaplane operations appear suspended, which is why this is a
@@ -318,30 +366,30 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
 
     <div class="offer">
       <h3>On offer today</h3>
-      <div class="oitem">
+      <div class="oitem" data-opt="d16-nerada-tea-plantation">
         <div class="oline"><b>Nerada Tea Plantation, Malanda</b><span class="dur">45 min</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Nerada+Tea+Plantation+tree+kangaroo" target="_blank" rel="noopener">Photos</a></div>
         <p>A family of Lumholtz's tree kangaroos lives in trees planted outside the visitor centre,
         up to five of them. Mornings are the reliable window. Free, and there is a café. Tree kangaroos
         are close to unseeable anywhere else.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d16-waterfall-circuit-millaa">
         <div class="oline"><b>Waterfall circuit, Millaa Millaa</b><span class="dur">2–3 h</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Millaa+Millaa+Falls+waterfall+circuit" target="_blank" rel="noopener">Photos</a></div>
         <p>A 17 km loop off Teresa Creek Road linking Millaa Millaa, Zillie 7.5 km on, and Ellinjaa 3 km
         after that. Thirty minutes if you only drive it, two to three hours if you swim at each. Millaa
         Millaa is the one from every shampoo advert. Free, no booking.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d16-yungaburra-platypus-platform">
         <div class="oline"><b>Yungaburra platypus platform</b><span class="dur">1 h at dusk</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Yungaburra+platypus+Peterson+Creek" target="_blank" rel="noopener">Photos</a></div>
         <p>Wild platypus in Peterson Creek. Dawn and dusk are the windows. Locals send you across the
         bridge and onto the track beneath it rather than standing on the platform. The information
         centre posts daily sightings. Free.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d16-lake-eacham">
         <div class="oline"><b>Lake Eacham</b><span class="dur">1–2 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Lake+Eacham+crater+lake" target="_blank" rel="noopener">Photos</a></div>
         <p>Volcanic crater lake in rainforest with a swimming pontoon and easy water access. The
         circuit walk is 3 km, about 45 minutes. Free.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d16-granite-gorge-mareeba">
         <div class="oline"><b>Granite Gorge, Mareeba</b><span class="dur">2 h + 30 min each way</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Granite+Gorge+Mareeba+rock+wallaby" target="_blank" rel="noopener">Photos</a></div>
         <p>Endangered Mareeba rock wallabies that come to your hand for pellets, up to fifty of them in
         the afternoon. Found nowhere else in the world. Paid entry, and it is the one option here that
@@ -363,32 +411,32 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
 
     <div class="offer">
       <h3>On offer today</h3>
-      <div class="oitem">
+      <div class="oitem" data-opt="d17-skydive-mission-beach">
         <div class="oline"><b>Skydive Mission Beach</b><span class="dur">half day</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Skydive+Mission+Beach+Queensland" target="_blank" rel="noopener">Photos</a></div>
         <p>Australia's highest tandem jump at 15,000 ft and the only one landing on a beach. About
         60 seconds of freefall over the reef. Take a morning slot for the weather odds, a scrubbed jump
         rolls to the afternoon. A$379 base plus roughly A$170 media and a A$30 levy.</p>
         <div class="links"><a class="lk" href="https://www.skydive.com.au/locations/mission-beach/" target="_blank" rel="noopener">Skydive Mission Beach →</a></div>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d17-tully-river-rafting">
         <div class="oline"><b>Tully River rafting</b><span class="dur">full day</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Tully+River+rafting+Queensland" target="_blank" rel="noopener">Photos</a></div>
         <p>Grade 3–4, pickup from Mission Beach an hour away. Dam-released so water levels are
         guaranteed year round. A$184 plus a A$35 river levy on the day. Takes the whole day and rules
         out everything else on this list.</p>
         <div class="links"><a class="lk" href="https://www.ragingthunder.com.au/tully-river-rafting" target="_blank" rel="noopener">Raging Thunder →</a></div>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d17-etty-bay-cassowaries">
         <div class="oline"><b>Etty Bay cassowaries</b><span class="dur">1–2 h</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Etty+Bay+cassowary+beach" target="_blank" rel="noopener">Photos</a></div>
         <p>Wild cassowaries walk this beach daily, the tamest population in Queensland because of the
         caravan park behind it. Late afternoon is the window. Pick a spot and wait rather than
         following them, they are large wild birds and can do real damage. Free.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d17-josephine-falls">
         <div class="oline"><b>Josephine Falls</b><span class="dur">1 h</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Josephine+Falls+Queensland" target="_blank" rel="noopener">Photos</a></div>
         <p>Natural granite waterslide, 700 m walk from the car park, 8 km off the Bruce Highway.
         Only when water is low. Obey the signs, people have died here in high flow. Free.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d17-babinda-boulders">
         <div class="oline"><b>Babinda Boulders</b><span class="dur">1 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Babinda+Boulders" target="_blank" rel="noopener">Photos</a></div>
         <p>Creek pools between huge granite boulders, 7 km west of Babinda. Picnic area, changing rooms
         and toilets. Strong currents and steep drop-offs where the creek narrows. Free.</p>
@@ -416,24 +464,24 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
 
     <div class="offer">
       <h3>On offer today</h3>
-      <div class="oitem">
+      <div class="oitem" data-opt="d18-big-crystal-creek">
         <div class="oline"><b>Big Crystal Creek, Paluma Range</b><span class="dur">1–2 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Big+Crystal+Creek+Paluma+Range" target="_blank" rel="noopener">Photos</a></div>
         <p>Straight off the Bruce Highway in the Mount Spec section, no real detour. Clear granite
         pools stepping down the creek, with the swimming area a short walk from the day-use car park.
         National park camping here too if the day ever needs to stretch. Free to visit.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d18-jourama-falls">
         <div class="oline"><b>Jourama Falls</b><span class="dur">1.5–2 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Jourama+Falls+Paluma+Range" target="_blank" rel="noopener">Photos</a></div>
         <p>Also directly off the highway, on Waterview Creek. A 3 km return track climbs beside the
         creek to the falls lookout with swimming holes along the way. Composting toilets, tap water,
         gas barbecues, good birdwatching. Free to visit.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d18-geoffrey-bay-rock">
         <div class="oline"><b>Geoffrey Bay rock wallabies</b><span class="dur">1 h, late afternoon</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Geoffrey+Bay+rock+wallabies+Magnetic+Island" target="_blank" rel="noopener">Photos</a></div>
         <p>Allied rock wallabies come down onto the rocks at the end of the day. A short walk from
         Nelly Bay. Free.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d18-nelly-bay-or">
         <div class="oline"><b>Nelly Bay or Horseshoe Bay</b><span class="dur">flexible</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Horseshoe+Bay+Magnetic+Island" target="_blank" rel="noopener">Photos</a></div>
         <p>Swim and settle. Stinger season has not started yet in October.</p>
       </div>
@@ -457,7 +505,7 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
 
     <div class="offer">
       <h3>On offer this morning</h3>
-      <div class="oitem">
+      <div class="oitem" data-opt="d19-forts-walk">
         <div class="oline"><b>Forts Walk</b><span class="dur">4 km · allow 2 h</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Magnetic+Island+Forts+Walk+koala" target="_blank" rel="noopener">Photos</a></div>
         <p>WWII gun emplacements along the ridge, and <b>wild koalas asleep in the gums directly above
         the track</b>. Grade 3, open 24 hours, and the final climb to the circuit is steep with many
@@ -466,13 +514,13 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
         Forts circuit itself is unaffected. Radical Bay is out; Balding Bay is reached from Horseshoe
         Bay on a different track and is open.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d19-barbie-car">
         <div class="oline"><b>Barbie car</b><span class="dur">2–3 h</span><span class="plan">Currently planned</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Magnetic+Island+Barbie+car+hire" target="_blank" rel="noopener">Photos</a></div>
         <p>Open-top hire car, roof off, round the island. <b>Tropical Topless has closed.</b> Isle Hire
         does the equivalent from about A$126.50, a plain hatchback is around A$74. Check the seat count,
         four of you may need two cars.</p>
       </div>
-      <div class="oitem">
+      <div class="oitem" data-opt="d19-geoffrey-bay-rock">
         <div class="oline"><b>Geoffrey Bay rock wallabies</b><span class="dur">1 h</span><a class="ph" href="https://www.google.com/search?tbm=isch&q=Geoffrey+Bay+rock+wallabies+Magnetic+Island" target="_blank" rel="noopener">Photos</a></div>
         <p>If you missed them yesterday evening.</p>
       </div>
@@ -577,6 +625,11 @@ Items marked <span class="plan">Currently planned</span> are what the itinerary 
   </div>
 </div>
 
+<div class="tally" id="tally">
+  <h2>Where the votes are landing</h2>
+  <div id="tallyrows"></div>
+</div>
+
 <footer>Updated 31 August 2026. Verified against operators or Queensland Parks: Ocean Safari,
 Passions of Paradise, Cape Trib Horse Rides and Jungle Surfing departure times and durations; the
 Millaa Millaa circuit; Mossman Gorge and Atherton to Mission Beach drive times; Forts Walk distance,
@@ -584,5 +637,132 @@ grade and the Route 2 closure. Distances marked with ~ are estimates.
 <a href="../">Back to the booking plan →</a></footer>
 
 </div>
+
+<script type="module">
+// Shared activity votes. Same Firebase project as the booking checklist.
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAijbzSIAeykHc_yhi5r6iaDX64R-T9nZo",
+  authDomain: "arbici-8b875.firebaseapp.com",
+  databaseURL: "https://arbici-8b875-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "arbici-8b875"
+};
+const PEOPLE = [
+  {id:"javi", name:"Javi"}, {id:"sabas", name:"Sabas"},
+  {id:"nico", name:"Nico"}, {id:"frodo", name:"Frodo"}
+];
+const ME_KEY = "qld-vote-me";
+
+const items = [...document.querySelectorAll('.oitem[data-opt]')];
+const chips = document.getElementById('chips');
+const rowsEl = document.getElementById('tallyrows');
+let me = null; try { me = localStorage.getItem(ME_KEY); } catch(e){}
+let VOTES = {};
+let db = null, api = null;
+
+// Wrap each option's existing content so a tick can sit beside it, and give it a voters row.
+items.forEach(el => {
+  const body = document.createElement('div');
+  body.className = 'obody';
+  while (el.firstChild) body.appendChild(el.firstChild);
+  const tick = document.createElement('div');
+  tick.className = 'tick';
+  el.append(tick, body);
+  const v = document.createElement('div');
+  v.className = 'voters';
+  body.appendChild(v);
+  el.addEventListener('click', e => {
+    if (e.target.closest('a')) return;   // photo and operator links stay links
+    toggle(el.dataset.opt);
+  });
+});
+
+function badge(kind, text){
+  let b = document.getElementById('conn');
+  if (!b) { b = document.createElement('span'); b.id = 'conn'; chips.appendChild(b); }
+  b.className = 'connbadge ' + kind;
+  b.textContent = text;
+}
+
+function drawChips(){
+  chips.querySelectorAll('button').forEach(b => b.remove());
+  PEOPLE.forEach(p => {
+    const b = document.createElement('button');
+    b.className = 'chip' + (me === p.id ? ' on' : '');
+    b.textContent = p.name;
+    b.onclick = () => {
+      me = (me === p.id) ? null : p.id;
+      try { me ? localStorage.setItem(ME_KEY, me) : localStorage.removeItem(ME_KEY); } catch(e){}
+      drawChips(); paint();
+    };
+    chips.insertBefore(b, document.getElementById('conn'));
+  });
+}
+
+function voters(id){
+  const v = VOTES[id] || {};
+  return PEOPLE.filter(p => v[p.id]);
+}
+
+function paint(){
+  items.forEach(el => {
+    const vs = voters(el.dataset.opt);
+    el.querySelector('.tick').classList.toggle('on', !!(me && vs.some(p => p.id === me)));
+    el.querySelector('.tick').textContent = (me && vs.some(p => p.id === me)) ? '✓' : '';
+    el.querySelector('.voters').innerHTML = vs.length
+      ? vs.map(p => `<span class="av ${p.id}">${p.name}</span>`).join('')
+      : `<span class="av none">no votes yet</span>`;
+  });
+
+  // Tally, grouped by the day card each option sits in.
+  const byDay = new Map();
+  items.forEach(el => {
+    const card = el.closest('.day');
+    const day = card.querySelector('.dt').textContent.trim();
+    const title = el.querySelector('.oline b').textContent.trim();
+    if (!byDay.has(day)) byDay.set(day, []);
+    byDay.get(day).push({title, n: voters(el.dataset.opt).length});
+  });
+  rowsEl.innerHTML = [...byDay].map(([day, list]) => {
+    const ranked = list.filter(x => x.n > 0).sort((a,b) => b.n - a.n);
+    if (!ranked.length) return `<div class="trow"><span class="k">${day}</span>
+      <span class="v" style="font-weight:400;color:var(--light)">no votes yet</span></div>`;
+    const top = ranked[0].n;
+    const lead = ranked.filter(x => x.n === top).map(x => x.title).join(', ');
+    const rest = ranked.filter(x => x.n < top).map(x => `${x.title} (${x.n})`).join(', ');
+    return `<div class="trow"><span class="k">${day}</span>
+      <span class="v">${lead} · ${top}${rest ? `<small>also: ${rest}</small>` : ''}</span></div>`;
+  }).join('');
+}
+
+async function toggle(id){
+  if (!me) { alert('Tap your name at the top first.'); return; }
+  if (!db) return;
+  const on = (VOTES[id] || {})[me];
+  try {
+    const r = api.ref(db, `votes/${id}/${me}`);
+    on ? await api.remove(r) : await api.set(r, true);
+  } catch(e){ badge('down', 'not saving'); }
+}
+
+drawChips();
+badge('wait', 'connecting…');
+paint();
+
+try {
+  const [{ initializeApp }, mod] = await Promise.all([
+    import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"),
+    import("https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js")
+  ]);
+  api = mod;
+  db  = mod.getDatabase(initializeApp(FIREBASE_CONFIG));
+  mod.onValue(mod.ref(db, 'votes'), snap => {
+    VOTES = snap.val() || {};
+    badge('live', 'votes live');
+    paint();
+  }, () => badge('down', 'offline, not saving'));
+} catch(e) {
+  badge('down', 'offline, not saving');
+}
+</script>
 </body>
 </html>
