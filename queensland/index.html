@@ -28,14 +28,18 @@
   .fact small{display:block;margin-top:5px;font-size:10px;letter-spacing:1.1px;
               text-transform:uppercase;color:var(--light)}
 
-  .cta{display:flex;align-items:center;justify-content:space-between;gap:16px;
-       text-decoration:none;color:inherit;background:var(--paper);
-       border:1px solid #c8ded9;border-left:3px solid var(--go);border-radius:7px;
-       padding:16px 18px;margin:18px 0 0;transition:border-color .15s, transform .15s}
-  .cta:hover{border-color:#9cc7bf;border-left-color:var(--go);transform:translateY(-1px)}
-  .cta b{display:block;font-size:16px;color:var(--go);font-weight:600}
-  .cta span{display:block;color:var(--mid);font-size:13.5px;margin-top:3px}
-  .cta .arw{font-size:20px;color:var(--go);flex-shrink:0}
+  .cta{display:flex;align-items:center;justify-content:space-between;gap:20px;
+       text-decoration:none;color:#fff;background:var(--go);
+       border:1px solid var(--go);border-radius:8px;
+       padding:22px 24px;margin:22px 0 0;
+       box-shadow:0 2px 10px rgba(15,122,110,.22);
+       transition:transform .15s, box-shadow .15s, background .15s}
+  .cta:hover{background:#0c665c;transform:translateY(-2px);
+             box-shadow:0 5px 18px rgba(15,122,110,.3)}
+  .cta b{display:block;font-family:var(--serif);font-size:21px;color:#fff;font-weight:400;
+         letter-spacing:-.2px;line-height:1.25}
+  .cta span{display:block;color:rgba(255,255,255,.86);font-size:14px;margin-top:6px;max-width:56ch}
+  .cta .arw{font-size:26px;color:#fff;flex-shrink:0;opacity:.9}
 
   .links{margin:9px 0 0;display:flex;flex-wrap:wrap;gap:6px}
   .lk{display:inline-block;font-size:12px;text-decoration:none;color:var(--go);
@@ -61,6 +65,11 @@
   .p1{background:var(--warnbg);color:var(--warn)}
   .p2{background:var(--gobg);color:var(--go)}
   .p3{background:var(--wash);color:var(--light)}
+  .p4{background:#f2eff7;color:#6c4478;border:1px solid #dbcde0}
+  tr.pending td{background:repeating-linear-gradient(-45deg,
+      transparent,transparent 9px,rgba(108,68,120,.035) 9px,rgba(108,68,120,.035) 18px)}
+  tr.pending .wht b{color:var(--mid);font-weight:600}
+  tr.pending .wht b::before{content:"◇ ";color:#6c4478}
 
   td.chk{width:36px;text-align:center}
   input[type=checkbox]{width:17px;height:17px;accent-color:var(--go);cursor:pointer;margin:1px 0 0}
@@ -132,13 +141,13 @@
 </div>
 
 <a class="cta" href="./itinerary/">
-  <span><b>Open the day-by-day itinerary, and vote →</b>
+  <span><b>Open the itinerary and vote on what we do</b>
   <span>Every day's movement and everything on offer, with durations and costs. Tick what you want
-  to do and everyone sees it live.</span></span>
+  to do. Everyone votes on the same page and sees it live.</span></span>
   <span class="arw">→</span>
 </a>
 
-<div class="flag"><b>Van not booked.</b> Frodo confirms today. Javi books tomorrow. Camperman,
+<div class="flag"><b>Van not booked.</b> Javi books it as soon as we know whether we are three or four. Camperman,
 10 days, Cairns → Airlie. At four, two Juliette 3 at A$1,770 each. At three, one Paradise Family 5
 at A$1,930.</div>
 
@@ -160,7 +169,7 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
     <tr><td class="dt">17 Oct</td><td>Down to Mission Beach. Skydive or rafting, cassowaries at Etty Bay</td><td>1, van</td></tr>
     <tr><td class="dt">18 Oct</td><td>Townsville, ferry to Magnetic Island. Van parked in Townsville</td><td>1, room</td></tr>
     <tr><td class="dt">19 Oct</td><td>Forts Walk and the Barbie car, then 275 km south to Airlie</td><td>1, van</td></tr>
-    <tr><td class="dt">20–22 Oct</td><td>Van back on the 20th, boat out 14:00. Whitsundays, 2 days 2 nights</td><td>2, at anchor</td></tr>
+    <tr><td class="dt">20–21 Oct</td><td>Van back on the 20th, boat out 14:00. Whitsundays, 2 days 2 nights</td><td>2, at anchor</td></tr>
     <tr><td class="dt">22 Oct</td><td>Back in Airlie 12:00. The big Airlie night, toad races at Magnums</td><td>1, room</td></tr>
     <tr><td class="dt">23–24 Oct</td><td>Proserpine → Brisbane → Woodfordia. Earth Frequency, Friday and Saturday</td><td>2, tents</td></tr>
     <tr><td class="dt">25 Oct</td><td>Brisbane → Madrid, landing Monday the 26th</td><td>in transit</td></tr>
@@ -185,7 +194,7 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
 
     <tr><td class="chk"><input type="checkbox" data-k="van"></td>
       <td class="wht"><a href="https://www.campermanaustralia.com/" target="_blank" rel="noopener">Campervan, 10 days</a>
-        <small>Cairns 11 Oct → Airlie 20 Oct. Two Juliette 3 at four, one Paradise Family 5 at three. Breakdown in the note above. Booking tomorrow</small></td>
+        <small>Cairns 11 Oct → Airlie 20 Oct. Two Juliette 3 at four, one Paradise Family 5 at three. Breakdown in the note above. Books once the headcount is settled</small></td>
       <td class="num">A$643–885<small>€386–530</small></td><td><span class="dri javi">Javi</span></td><td><span class="pri p1">First</span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="fest"></td>
@@ -247,17 +256,50 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <td class="wht"><a href="https://www.skydive.com.au/locations/mission-beach/" target="_blank" rel="noopener">Skydive</a> <span class="opt">Optional</span>
         <small>17 Oct. A$379 jump plus ~A$170 media and a ~A$30 levy. Decide individually</small></td>
       <td class="num">A$580<small>€350</small></td><td><span class="dri each">Each of us</span></td><td><span class="pri p3">Later</span></td></tr>
+
+    <tr class="pending"><td class="chk"><input type="checkbox" data-k="pend-ocean"></td>
+      <td class="wht"><b><a href="./itinerary/#d12-ocean-safari-mackay">Ocean Safari, Mackay Reef</a></b>
+        <small>12 or 13 Oct, whichever the vote picks. Half day, max 25 passengers, so it fills. Price TBC</small></td>
+      <td class="num">TBC</td><td><span class="dri frodo">Frodo</span></td><td><span class="pri p4">Awaiting vote</span></td></tr>
+
+    <tr class="pending"><td class="chk"><input type="checkbox" data-k="pend-zip"></td>
+      <td class="wht"><b><a href="./itinerary/#d12-jungle-surfing-canopy">Jungle Surfing canopy tour</a></b>
+        <small>12 or 13 Oct. Several departures a day. Price TBC</small></td>
+      <td class="num">TBC</td><td><span class="dri frodo">Frodo</span></td><td><span class="pri p4">Awaiting vote</span></td></tr>
+
+    <tr class="pending"><td class="chk"><input type="checkbox" data-k="pend-night"></td>
+      <td class="wht"><b><a href="./itinerary/#d12-daintree-night-walk">Daintree night walk</a></b>
+        <small>12 or 13 Oct. Small groups, needs booking ahead. Price TBC</small></td>
+      <td class="num">TBC</td><td><span class="dri frodo">Frodo</span></td><td><span class="pri p4">Awaiting vote</span></td></tr>
+
+    <tr class="pending"><td class="chk"><input type="checkbox" data-k="pend-raft"></td>
+      <td class="wht"><b><a href="./itinerary/#d17-tully-river-rafting">Tully River rafting</a></b>
+        <small>17 Oct. The alternative to the skydive, cannot do both. A$184 plus a A$35 river levy on the day</small></td>
+      <td class="num">A$219<small>€131</small></td><td><span class="dri nico">Nico</span></td><td><span class="pri p4">Awaiting vote</span></td></tr>
+
+    <tr class="pending"><td class="chk"><input type="checkbox" data-k="pend-heli"></td>
+      <td class="wht"><b><a href="./itinerary/#d15-helicopter-to-vlasoff">Helicopter to Vlasoff Cay</a></b>
+        <small>15 Oct. Only if the vote goes against Passions of Paradise. Roughly A$650, replaces the A$275 reef day</small></td>
+      <td class="num">~A$650<small>€390</small></td><td><span class="dri javi">Javi</span></td><td><span class="pri p4">Awaiting vote</span></td></tr>
+
+    <tr class="pending"><td class="chk"><input type="checkbox" data-k="pend-granite"></td>
+      <td class="wht"><b><a href="./itinerary/#d16-granite-gorge-mareeba">Granite Gorge, Mareeba</a></b>
+        <small>16 Oct. Paid entry at the gate, no booking needed, but it is a 30 min detour each way so it has to be agreed</small></td>
+      <td class="num">TBC</td><td><span class="dri sabas">Sabas</span></td><td><span class="pri p4">Awaiting vote</span></td></tr>
   </tbody>
 </table>
 <p class="prog"><span id="prog"></span> <span id="conn" class="connbadge wait">connecting…</span></p>
+<p class="note">Rows marked <span class="pri p4">Awaiting vote</span> are placeholders. They become real
+tasks with an owner once the <a href="./itinerary/#tally">vote</a> settles, and they are not counted
+above. Prices marked TBC need checking with the operator.</p>
 
 <h2>Total per person</h2>
 <div class="total">
-  <div class="tl"><span>Bookings, per the table above</span><b>A$2,810–3,078<small>€1,686–1,847</small></b></div>
+  <div class="tl"><span>Bookings, per the table above</span><b>A$2,704–3,066<small>€1,622–1,840</small></b></div>
   <div class="tl"><span>Fuel, ~1,200 km</span><b>A$115–160<small>€69–96</small></b></div>
   <div class="tl"><span>Food and drink, 15 days, cooking in the van</span><b>A$1,075<small>€645</small></b></div>
-  <div class="tl grand"><span>On the ground, at three</span><b>A$4,000<small>€2,400</small></b></div>
-  <div class="tl grand"><span>On the ground, at four</span><b>A$4,313<small>€2,590</small></b></div>
+  <div class="tl grand"><span>On the ground, at three</span><b>A$3,895<small>€2,335</small></b></div>
+  <div class="tl grand"><span>On the ground, at four</span><b>A$4,300<small>€2,580</small></b></div>
 </div>
 <p class="note">International flights on top. The skydive is optional and adds A$580 · €350.
 Optional activities on the <a href="./itinerary/">day-by-day page</a> are not in this total.</p>
@@ -267,7 +309,7 @@ Optional activities on the <a href="./itinerary/">day-by-day page</a> are not in
 <table>
   <thead><tr><th>Item</th><th>What's needed</th></tr></thead>
   <tbody>
-    <tr><td>Frodo confirming</td><td>Blocks the van booking, which is the only item with real deadline pressure.</td></tr>
+    <tr><td>Three or four</td><td>The van is the only booking that changes with the headcount. Everything else works either way.</td></tr>
     <tr><td>Boat price</td><td>Sabas booked it. The A$700 above is a placeholder.</td></tr>
     <tr><td>Luggage while aboard</td><td>Where two weeks of gear goes on the 20th–22nd once the van is returned.</td></tr>
     <tr><td>Festival shuttle</td><td>Page is 404. Watch for a 2026 announcement, but the hire car is the plan.</td></tr>
@@ -281,18 +323,15 @@ Passions of Paradise fare and sailing times, Queensland licence rules. Everythin
 </div>
 
 <script type="module">
-// Shared booking state. Same Firebase project as the vote page.
-const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyAijbzSIAeykHc_yhi5r6iaDX64R-T9nZo",
-  authDomain: "arbici-8b875.firebaseapp.com",
-  databaseURL: "https://arbici-8b875-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "arbici-8b875"
-};
+// Shared booking state, node /bookings. Config and SDK loader live in firebase-config.js.
+import { connect } from './firebase-config.js';
 const LEGACY_KEY = 'qld-booking-2026';
 
 const boxes = [...document.querySelectorAll('#booking input[type=checkbox]')];
+// Pending rows are excluded from the count: they may never become bookings.
 const rows  = [...document.querySelectorAll('#booking tbody tr')]
-                .filter(r => r.querySelectorAll('input[type=checkbox]').length);
+                .filter(r => r.querySelectorAll('input[type=checkbox]').length
+                          && !r.classList.contains('pending'));
 const prog  = document.getElementById('prog');
 const conn  = document.getElementById('conn');
 
@@ -331,13 +370,12 @@ boxes.forEach(b => b.addEventListener('change', async () => {
 paint();
 status('wait', 'connecting…');
 
-try {
-  const [{ initializeApp }, mod] = await Promise.all([
-    import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"),
-    import("https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js")
-  ]);
-  api = mod;
-  db  = mod.getDatabase(initializeApp(FIREBASE_CONFIG));
+const conn_ = await connect();
+if (!conn_) {
+  status('down', 'offline, not saving');
+} else {
+  const mod = conn_.api;
+  api = mod; db = conn_.db;
   mod.onValue(mod.ref(db, 'bookings'), async snap => {
     const remote = snap.val();
     // One-time lift of any ticks made before this list was shared.
@@ -358,8 +396,6 @@ try {
     status('live', 'shared, saving live');
     paint();
   }, () => status('down', 'offline, not saving'));
-} catch(e) {
-  status('down', 'offline, not saving');
 }
 </script>
 </body>
