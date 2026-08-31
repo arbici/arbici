@@ -112,15 +112,17 @@
   .flag.ok{background:var(--gobg);border-color:#c8ded9;border-left-color:var(--go);color:#0b5f56}
   .flag.ok b{color:var(--go)}
   .pri.pok{background:var(--go);color:#fff}
-  .opts{margin:13px 0 0;border:1px solid var(--line);border-radius:5px;overflow:hidden}
-  .opts-toggle{display:block;width:100%;padding:10px 12px;background:var(--wash);border:none;
-               text-align:left;font-size:13.5px;font-weight:600;color:var(--ink);cursor:pointer}
-  .opts-toggle:hover{background:#f0f0ed}
-  .opts-list{padding:12px;background:var(--paper);border-top:1px solid var(--line)}
-  .opt{padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px}
-  .opt:last-child{border-bottom:none}
-  .opt b{color:var(--go);font-weight:600}
-  .opt p{margin:4px 0 0;color:var(--mid);font-size:13px;line-height:1.4}
+  .opts{margin:13px 0 0}
+  .opts-toggle{display:block;width:auto;padding:0;background:none;border:none;font-size:13.5px;
+               font-weight:400;color:var(--go);cursor:pointer;text-decoration:none}
+  .opts-toggle:hover{text-decoration:underline}
+  .opts-list{margin:8px 0 0;padding:12px;background:var(--wash);border-left:2px solid var(--go);
+             border-radius:4px}
+  .opt{padding:10px 0;font-size:13.5px;line-height:1.4}
+  .opt:last-child{padding-bottom:0}
+  .opt b{color:var(--ink);font-weight:600;display:block}
+  .opt small{color:var(--light);font-size:12px;font-weight:400}
+  .opt p{margin:3px 0 0;color:var(--mid);font-size:13px;line-height:1.4}
   hr{border:0;border-top:1px solid var(--line);margin:36px 0 0}
   footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
          font-size:11.5px;color:var(--light)}
@@ -274,30 +276,30 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       ferry</b>, which runs continuously. Road narrows and winds after. Don't drive after
       dark — cassowaries and no lighting. Arrive Cape Trib ~12:30 PM. Several hours until sundown (5–6 PM).</p>
     </div></div>
-    <div class="slot"><div class="w">Evening</div><div class="b"><b>What to do this afternoon?</b>
-      <p>Depending on activity, you have time for options ranging from 90 minutes to 2.5 hours. Click below to see what's available.</p>
+    <div class="slot"><div class="w">Evening</div><div class="b"><b>Activity options</b>
+      <p>You have until sundown (5–6 PM). Options range from 90 minutes to 2.5 hours depending on what appeals.</p>
       <div class="opts">
-        <button class="opts-toggle">Activity options ▼</button>
+        <button class="opts-toggle">Other options ▼</button>
         <div class="opts-list" style="display:none;">
           <div class="opt">
-            <b>Mossman Gorge</b> (2–2.5 hours)
-            <p>Rainforest circuit walk (2.4 km) through lush canopy with cold creek swimming holes. Moderate pace, multiple swim breaks. Departs every 20 min on shuttle.</p>
+            <b>Mossman Gorge</b> <small>2–2.5 hours</small>
+            <p>Rainforest circuit walk through lush canopy with cold creek swimming holes. Moderate pace, multiple swim breaks.</p>
           </div>
           <div class="opt">
-            <b>Turtle snorkel</b> (2 hours + boat)
-            <p>Half-day reef snorkel at Mackay/Undine Reef. Guaranteed turtles, snorkelling gear and instruction included. Later return to camp, sunset arrival.</p>
+            <b>Turtle snorkel</b> <small>2 hours + boat</small>
+            <p>Half-day reef snorkel at Mackay/Undine Reef. Guaranteed turtles, snorkelling gear included. Later return to camp.</p>
           </div>
           <div class="opt">
-            <b>Cape Trib Fruit Farm</b> (90 minutes)
-            <p>Guided walk through tropical orchards with local fruit tasting. Low-intensity, good for easing into the region after travel.</p>
+            <b>Cape Trib Fruit Farm</b> <small>90 minutes</small>
+            <p>Guided walk through tropical orchards with fruit tasting. Low-intensity, good for easing in after travel.</p>
           </div>
           <div class="opt">
-            <b>Beach and swimming</b> (flexible, 1–2 hours)
-            <p>Explore Myall Beach, local swimming holes at casual pace. Light activity to settle in after long flights.</p>
+            <b>Beach and swimming</b> <small>flexible, 1–2 hours</small>
+            <p>Explore Myall Beach and local swimming holes at your pace. Light activity to settle after long flights.</p>
           </div>
           <div class="opt">
-            <b>Rest and explore</b> (flexible)
-            <p>Settle at campsite, cook dinner, explore surroundings at your own pace. No structured activity.</p>
+            <b>Rest and explore</b> <small>flexible</small>
+            <p>Settle at campsite, cook dinner, explore at your own pace. No structured activity.</p>
           </div>
         </div>
       </div>
