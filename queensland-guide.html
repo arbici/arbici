@@ -28,24 +28,14 @@
   .fact small{display:block;margin-top:5px;font-size:10px;letter-spacing:1.1px;
               text-transform:uppercase;color:var(--light)}
 
-  .day{background:var(--paper);border:1px solid var(--line);border-radius:7px;
-       margin:0 0 12px;overflow:hidden}
-  .dhead{display:flex;gap:12px;align-items:baseline;padding:13px 17px;
-         border-bottom:1px solid var(--line);background:#fbfbfa;flex-wrap:wrap}
-  .dhead .dt{font-family:var(--serif);font-size:17px;white-space:nowrap}
-  .dhead .pl{flex:1;font-weight:600;font-size:14.5px}
-  .dhead .dr{font-size:12px;color:var(--light);white-space:nowrap}
-  .dbody{padding:15px 17px}
-  .slot{display:flex;gap:18px;padding:0 0 11px}
-  .slot:last-of-type{padding-bottom:0}
-  .slot .w{width:86px;flex-shrink:0;font-size:10.5px;letter-spacing:.9px;text-transform:uppercase;
-           color:var(--light);padding-top:3px;line-height:1.35}
-  .slot .b{flex:1}
-  .slot .b b{font-weight:600}
-  .slot .b p{margin:3px 0 0;color:var(--mid);font-size:13.8px}
-  .sleep{margin:13px 0 0;padding:10px 12px;background:var(--wash);border-radius:5px;
-         font-size:13.5px;color:var(--mid)}
-  .sleep b{color:var(--ink)}
+  .cta{display:flex;align-items:center;justify-content:space-between;gap:16px;
+       text-decoration:none;color:inherit;background:var(--paper);
+       border:1px solid #c8ded9;border-left:3px solid var(--go);border-radius:7px;
+       padding:16px 18px;margin:18px 0 0;transition:border-color .15s, transform .15s}
+  .cta:hover{border-color:#9cc7bf;border-left-color:var(--go);transform:translateY(-1px)}
+  .cta b{display:block;font-size:16px;color:var(--go);font-weight:600}
+  .cta span{display:block;color:var(--mid);font-size:13.5px;margin-top:3px}
+  .cta .arw{font-size:20px;color:var(--go);flex-shrink:0}
 
   .links{margin:9px 0 0;display:flex;flex-wrap:wrap;gap:6px}
   .lk{display:inline-block;font-size:12px;text-decoration:none;color:var(--go);
@@ -65,6 +55,7 @@
   tr:last-child td{border-bottom:0}
   td.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;width:104px}
   td.num small{display:block;font-size:11px;color:var(--light);font-weight:400;margin-top:1px}
+  td.dt{white-space:nowrap;font-weight:600;width:92px}
   .pri{font-size:10px;letter-spacing:.8px;text-transform:uppercase;font-weight:600;
        padding:2px 6px;border-radius:3px;white-space:nowrap}
   .p1{background:var(--warnbg);color:var(--warn)}
@@ -112,24 +103,11 @@
   .flag.ok{background:var(--gobg);border-color:#c8ded9;border-left-color:var(--go);color:#0b5f56}
   .flag.ok b{color:var(--go)}
   .pri.pok{background:var(--go);color:#fff}
-  .opts{margin:13px 0 0}
-  .opts-toggle{display:inline-block;width:auto;padding:0;background:none;border:none;outline:none;
-               font-family:var(--sans);font-size:13px;font-weight:400;color:var(--go);
-               cursor:pointer;text-transform:none;letter-spacing:normal}
-  .opts-toggle:hover{text-decoration:underline}
-  .opts-list{margin:9px 0 0;padding:2px 0 0 13px;border-left:2px solid var(--line)}
-  .oitem{padding:9px 0;font-size:13.5px;line-height:1.5;text-transform:none;letter-spacing:normal;
-         background:none;border:0}
-  .oitem:first-child{padding-top:2px}
-  .oitem:last-child{padding-bottom:2px}
-  .oitem b{color:var(--ink);font-weight:600;text-transform:none;letter-spacing:normal}
-  .oitem .dur{color:var(--light);font-size:12px;font-weight:400;margin-left:6px}
-  .oitem p{margin:3px 0 0;color:var(--mid);font-size:13.5px;line-height:1.5}
   hr{border:0;border-top:1px solid var(--line);margin:36px 0 0}
   footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
          font-size:11.5px;color:var(--light)}
   @media print{ body{background:#fff} .page{padding:0;max-width:none}
-    .day,table,.flag{break-inside:avoid} h2{break-after:avoid} .lk{border-color:#ccc} }
+    table,.flag{break-inside:avoid} h2{break-after:avoid} .lk{border-color:#ccc} }
 </style>
 </head>
 <body>
@@ -149,6 +127,12 @@
   <div class="fact"><b>2</b><small>festival days</small></div>
 </div>
 
+<a class="cta" href="./itinerary/">
+  <span><b>Open the day-by-day itinerary →</b>
+  <span>Every day's movement, plus everything on offer in each place with durations and costs.</span></span>
+  <span class="arw">→</span>
+</a>
+
 <div class="flag"><b>Van not booked.</b> Frodo confirms today. Javi books tomorrow. Camperman,
 10 days, Cairns → Airlie. At four, two Juliette 3 at A$1,770 each. At three, one Paradise Family 5
 at A$1,930.</div>
@@ -159,6 +143,26 @@ the timetable circulating online is last year's, so there may or may not be a 20
 are a hire car from Brisbane airport (~A$55/day, about A$55 each over four days split four ways),
 train to Caboolture plus a local bus and a taxi, or an Uber — roughly A$130–180 each way, which
 split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
+
+<h2>The route</h2>
+<table>
+  <thead><tr><th>Date</th><th>Where</th><th>Nights</th></tr></thead>
+  <tbody>
+    <tr><td class="dt">9 Oct</td><td>Fly out of Europe. Open-jaw, into Cairns and out of Brisbane</td><td>in transit</td></tr>
+    <tr><td class="dt">11–13 Oct</td><td>Land Cairns, collect the van, north to Cape Tribulation and the Daintree</td><td>3, van</td></tr>
+    <tr><td class="dt">14–15 Oct</td><td>Cairns. Outer Great Barrier Reef on the 15th</td><td>2, van</td></tr>
+    <tr><td class="dt">16 Oct</td><td>Atherton Tablelands. Waterfalls, tree kangaroos, platypus</td><td>1, van</td></tr>
+    <tr><td class="dt">17 Oct</td><td>Down to Mission Beach. Skydive or rafting, cassowaries at Etty Bay</td><td>1, van</td></tr>
+    <tr><td class="dt">18 Oct</td><td>Townsville, ferry to Magnetic Island. Van parked in Townsville</td><td>1, room</td></tr>
+    <tr><td class="dt">19 Oct</td><td>Forts Walk and the Barbie car, then 275 km south to Airlie</td><td>1, van</td></tr>
+    <tr><td class="dt">20–22 Oct</td><td>Van back on the 20th, boat out 14:00. Whitsundays, 2 days 2 nights</td><td>2, at anchor</td></tr>
+    <tr><td class="dt">22 Oct</td><td>Back in Airlie 12:00. The big Airlie night, toad races at Magnums</td><td>1, room</td></tr>
+    <tr><td class="dt">23–24 Oct</td><td>Proserpine → Brisbane → Woodfordia. Earth Frequency, Friday and Saturday</td><td>2, tents</td></tr>
+    <tr><td class="dt">25 Oct</td><td>Brisbane → Madrid, landing Monday the 26th</td><td>in transit</td></tr>
+  </tbody>
+</table>
+<p class="note">Full detail, activity options and durations are on the
+<a href="./itinerary/">day-by-day page</a>.</p>
 
 <h2>Who books what</h2>
 <table id="booking">
@@ -196,7 +200,7 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
 
     <tr><td class="chk"><input type="checkbox" data-k="reef"></td>
       <td class="wht"><a href="https://passions.com.au/great-barrier-reef-tours/">Passions of Paradise reef day</a>
-        <small>15 Oct. Two outer reef sites, gear and lunch included. Our only outer-reef day</small></td>
+        <small>15 Oct, 08:00–17:00. Two outer reef sites, gear and lunch included. Our only outer-reef day</small></td>
       <td class="num">A$275<small>€165</small></td><td><span class="dri javi">Javi</span></td><td><span class="pri p2">Soon</span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="bnecar"></td>
@@ -216,22 +220,22 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
 
     <tr><td class="chk"><input type="checkbox" data-k="camp-cairns-atherton"></td>
       <td class="wht"><b>Campsites: Cairns + Atherton, 3 nights (14–16 Oct)</b>
-        <small>Cairns (nights 14–15): <a href="https://tasmanholidayparks.com/au/cairns/">Tasman Holiday Parks Cool Waters</a>, 7 min from Esplanade. Atherton (night 16): <a href="https://www.nrmaparksandresorts.com.au/atherton-tablelands/">NRMA Atherton Tablelands</a> at 141 Herberton Rd. Book a week ahead</small></td>
+        <small>Cairns (14–15): <a href="https://tasmanholidayparks.com/au/cairns/">Tasman Cool Waters</a>, 7 min from the Esplanade. Atherton (16): <a href="https://www.nrmaparksandresorts.com.au/atherton-tablelands/">NRMA Atherton Tablelands</a>, 141 Herberton Rd. Book a week ahead</small></td>
       <td class="num">~A$75<small>€45</small></td><td><span class="dri sabas">Sabas</span></td><td><span class="pri p2">Soon</span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="camp-mission"></td>
       <td class="wht"><b>Campsite: Mission Beach, 1 night (17 Oct)</b>
-        <small><a href="https://www.missionbeachcampingandcaravanpark.com.au/">Mission Beach Camping & Caravan Park</a>, 53 Porter Promenade. 50 beachfront sites, powered and unpowered. Book a week ahead. Alternatives: Crystal Creek, Crystal Ridge</small></td>
+        <small><a href="https://www.missionbeachcampingandcaravanpark.com.au/">Mission Beach Camping &amp; Caravan Park</a>, 53 Porter Promenade. 50 beachfront sites, powered and unpowered. Book a week ahead</small></td>
       <td class="num">~A$28<small>€17</small></td><td><span class="dri frodo">Frodo</span></td><td><span class="pri p2">Soon</span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="camp-airlie"></td>
       <td class="wht"><b>Campsite: Airlie Beach, 1 night (19 Oct)</b>
-        <small><a href="https://tasmanholidayparks.com/au/airlie-beach/">Tasman Holiday Parks Airlie</a> or <a href="https://www.nrmaparksandresorts.com.au/airlie-beach/">NRMA Airlie</a>. You collect the van morning of 20 Oct, so flexibility. Timing is soft</small></td>
+        <small><a href="https://tasmanholidayparks.com/au/airlie-beach/">Tasman Airlie</a> or <a href="https://www.nrmaparksandresorts.com.au/airlie-beach/">NRMA Airlie</a>. Van goes back the next morning, so this one is flexible</small></td>
       <td class="num">~A$35<small>€21</small></td><td><span class="dri sabas">Sabas</span></td><td><span class="pri p2">Soon</span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="small"></td>
-      <td class="wht"><a href="https://www.capetribhorserides.com.au/">Horse ride</a>, <a href="https://www.solarwhisper.com/">Daintree cruise</a>, Barbie car
-        <small>Small operators, a week ahead is fine. Tropical Topless has closed — use Isle Hire for the Barbie car</small></td>
+      <td class="wht"><a href="https://www.capetribhorserides.com.au/bookings">Horse ride</a>, <a href="https://www.solarwhisper.com/">Daintree cruise</a>, Barbie car
+        <small>Small operators, a week ahead is fine. Horse ride departs 11:00 or 14:30 and forfeits inside 48 h. Tropical Topless has closed — use Isle Hire for the Barbie car</small></td>
       <td class="num">A$30–130<small>€18–78</small></td><td><span class="dri frodo">Frodo</span></td><td><span class="pri p3">Later</span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="sky"></td>
@@ -241,7 +245,6 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
   </tbody>
 </table>
 <p class="prog" id="prog"></p>
-<p class="note">Frodo holds the two items that can wait longest.</p>
 
 <h2>Total per person</h2>
 <div class="total">
@@ -251,402 +254,16 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
   <div class="tl grand"><span>On the ground, at three</span><b>A$4,000<small>€2,400</small></b></div>
   <div class="tl grand"><span>On the ground, at four</span><b>A$4,313<small>€2,590</small></b></div>
 </div>
-<p class="note">International flights on top. The skydive is optional and adds A$580 · €350.</p>
-
-<hr>
-<h2>Day by day</h2>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Fri 9 Oct</span><span class="pl">Fly out of Europe</span><span class="dr">~22 h + layover</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">All day</div><div class="b"><b>Europe → Cairns</b>
-      <p>Open-jaw booking: into Cairns, out of Brisbane. Carry the IDP alongside your actual licence
-      — it is not valid on its own.</p>
-    </div></div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Sun 11 Oct</span><span class="pl">Land Cairns → Cape Tribulation</span><span class="dr">140 km · 2 h 30</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Morning</div><div class="b"><b>Collect the campervan</b>
-      <p>Land 8:30 AM. Van pickup ~10:00 AM at Camperman depot, Cairns. Allow an hour for paperwork and walkaround. A$500 bond on a credit card. <b>Big food shop here</b> — Cape Tribulation has no supermarket and the village store prices accordingly.</p>
-      <div class="links"><a class="lk" href="https://www.campermanaustralia.com/campervan-hire-rental-cairns/">Camperman Cairns →</a></div>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Drive north to Cape Tribulation</b>
-      <p>Captain Cook Highway up the coast past Port Douglas, then the <b>Daintree River cable
-      ferry</b>, which runs continuously. Road narrows and winds after. Don't drive after
-      dark — cassowaries and no lighting. Arrive Cape Trib ~12:30 PM. Several hours until sundown (5–6 PM).</p>
-    </div></div>
-    <div class="slot"><div class="w">Evening</div><div class="b"><b>Activity options</b>
-      <p>You have until sundown (5–6 PM). Options range from 90 minutes to 2.5 hours depending on what appeals.</p>
-      <div class="opts">
-        <button class="opts-toggle">Other options ▼</button>
-        <div class="opts-list" style="display:none;">
-          <div class="oitem">
-            <b>Mossman Gorge</b> <span class="dur">2–2.5 hours</span>
-            <p>Rainforest circuit walk through lush canopy with cold creek swimming holes. Moderate pace, multiple swim breaks.</p>
-          </div>
-          <div class="oitem">
-            <b>Turtle snorkel</b> <span class="dur">2 hours + boat</span>
-            <p>Half-day reef snorkel at Mackay/Undine Reef. Guaranteed turtles, snorkelling gear included. Later return to camp.</p>
-          </div>
-          <div class="oitem">
-            <b>Cape Trib Fruit Farm</b> <span class="dur">90 minutes</span>
-            <p>Guided walk through tropical orchards with fruit tasting. Low-intensity, good for easing in after travel.</p>
-          </div>
-          <div class="oitem">
-            <b>Beach and swimming</b> <span class="dur">flexible, 1–2 hours</span>
-            <p>Explore Myall Beach and local swimming holes at your pace. Light activity to settle after long flights.</p>
-          </div>
-          <div class="oitem">
-            <b>Rest and explore</b> <span class="dur">flexible</span>
-            <p>Settle at campsite, cook dinner, explore at your own pace. No structured activity.</p>
-          </div>
-        </div>
-      </div>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> <a href="https://www.capetribcamping.com.au/">Cape Trib Camping</a>
-      (beachfront) or <a href="https://www.pksjunglevillage.com.au/">PK's Jungle Village</a>.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Mon 12 Oct</span><span class="pl">Daintree &amp; Mossman Gorge</span><span class="dr">~120 km round trip</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Morning</div><div class="b"><b>Daintree River wildlife cruise</b>
-      <p>Go early — crocodiles bask in the morning and the light is better. Solar Whisper is electric
-      and silent so it gets closer without spooking them.</p>
-      <div class="links">
-        <a class="lk" href="https://www.solarwhisper.com/">Solar Whisper <span class="pr">A$30 · €18</span></a>
-        <a class="lk" href="https://www.crocodileexpress.com/our-cruises-and-rates/">Crocodile Express</a>
-      </div>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Mossman Gorge</b>
-      <p>Park at the Gorge Centre and take the shuttle in — private cars aren't allowed up the access
-      road. Cold rainforest swimming holes. Check the signage, the river rises fast after rain.</p>
-    </div></div>
-    <div class="slot"><div class="w">Evening</div><div class="b"><b>Jungle Bar at PK's</b>
-      <p>Open till midnight, boardwalk straight from the bar to Myall Beach.</p>
-      <div class="opts">
-        <button class="opts-toggle">Other options ▼</button>
-        <div class="opts-list" style="display:none;">
-          <div class="oitem">
-            <b>Daintree River wildlife cruise</b> <span class="dur">1–2 hours</span>
-            <p>Go early for crocodile basking. Electric boat runs silent for better wildlife encounters. Crocodiles, birds, river ecology.</p>
-          </div>
-          <div class="oitem">
-            <b>Mossman Gorge circuit</b> <span class="dur">2–2.5 hours</span>
-            <p>2.4 km rainforest walk with multiple swimming holes in cool creek. Continuous shuttle access to the centre.</p>
-          </div>
-          <div class="oitem">
-            <b>Dubuji & Kulki boardwalks</b> <span class="dur">1 hour</span>
-            <p>Short rainforest and mangrove walks off the road, both free. Cape Trib lookout for the rainforest-meets-reef view.</p>
-          </div>
-        </div>
-      </div>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> Cape Tribulation, second night.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Tue 13 Oct</span><span class="pl">Cape Tribulation</span><span class="dr">no driving</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Morning</div><div class="b"><b>Horse ride on Myall Beach, 10:00 or 13:30</b>
-      <p>Cape Trib Horse Rides, running since 1981 and the only beach ride in the region. 90 minutes
-      through rainforest and creek crossings, then onto the sand and into the shallows. Walking pace,
-      no experience needed.</p>
-      <div class="links"><a class="lk" href="https://www.capetribhorserides.com.au/">Cape Trib Horse Rides <span class="pr">A$130 · €78</span></a></div>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Dubuji and Kulki boardwalks</b>
-      <p>Short mangrove and rainforest walks off the road, both free. Cape Trib lookout for the
-      rainforest-meets-reef view.</p>
-      <div class="opts">
-        <button class="opts-toggle">Other options ▼</button>
-        <div class="opts-list" style="display:none;">
-          <div class="oitem">
-            <b>Cape Trib Horse Rides</b> <span class="dur">90 minutes</span>
-            <p>Rainforest meander through creek crossings, then beach ride through shallow turquoise water. All levels welcome.</p>
-          </div>
-          <div class="oitem">
-            <b>Dubuji & Kulki boardwalks</b> <span class="dur">1 hour</span>
-            <p>Easy short rainforest and mangrove walks, both free. Cape Trib lookout for the rainforest-meets-reef view.</p>
-          </div>
-          <div class="oitem">
-            <b>Beach exploration & swimming</b> <span class="dur">flexible</span>
-            <p>Explore Myall Beach, local swimming holes. Light activity to settle in.</p>
-          </div>
-        </div>
-      </div>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> Cape Tribulation, third night.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Wed 14 Oct</span><span class="pl">Cape Tribulation → Cairns</span><span class="dr">140 km · 2 h 30</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Morning</div><div class="b"><b>Drive south</b>
-      <p>Stop in Port Douglas for Four Mile Beach and lunch. Restock food.</p>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Esplanade Lagoon</b>
-      <p>Free saltwater pool on the waterfront. There's no swimmable beach in Cairns itself, which is
-      exactly why the lagoon exists.</p>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Cairns activities</b>
-      <p>Cairns is not a strong destination. Most appeal is the night out. Options below for the afternoon if you want structure.</p>
-      <div class="opts">
-        <button class="opts-toggle">Other options ▼</button>
-        <div class="opts-list" style="display:none;">
-          <div class="oitem">
-            <b>Esplanade Lagoon</b> <span class="dur">1–2 hours</span>
-            <p>Free saltwater pool on the waterfront (no beach due to tidal mudflats). Main social gathering spot. <a href="https://www.google.com/search?q=Cairns+Esplanade+Lagoon&tbm=isch" style="color:var(--go)">Photos →</a></p>
-          </div>
-          <div class="oitem">
-            <b>Aquarium & Royal Botanic Gardens</b> <span class="dur">2–3 hours</span>
-            <p>Indoor marine exhibits and tropical garden walk. Relaxed pace, good for a low-key afternoon.</p>
-          </div>
-          <div class="oitem">
-            <b>Markets & street food</b> <span class="dur">1–2 hours</span>
-            <p>Local craft stalls and food vendors. Casual wandering, grab lunch.</p>
-          </div>
-        </div>
-      </div>
-    </div></div>
-    <div class="slot"><div class="w">Evening</div><div class="b"><b>Out in Cairns</b>
-      <p>Gilligan's has an open-air beer hall holding a thousand people. The Woolshed has run themed
-      nights since 1994. Both walkable from the Esplanade. <b>Last drinks 3am</b> — the whole night
-      runs earlier than you're used to, so be out by 10.</p>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> <a href="https://tasmanholidayparks.com/au/cairns/">Tasman Cool Waters</a>, first night.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Thu 15 Oct</span><span class="pl">Outer Great Barrier Reef</span><span class="dr">full day, boat</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">All day</div><div class="b"><b>Outer Great Barrier Reef options</b>
-      <p>This is the trip's only outer-reef water time. Check in at <b>Reef Fleet Terminal, 1 Spence St</b>. Reef-safe sunscreen, take seasickness tablets the night before.</p>
-      <div class="opts">
-        <button class="opts-toggle">Reef tour options ▼</button>
-        <div class="opts-list" style="display:none;">
-          <div class="oitem">
-            <b>Passions of Paradise catamaran</b> <span class="dur">9 hours (8 AM–5 PM)</span>
-            <p>25m sailing catamaran to two outer reef sites picked by conditions. Two hours water time, lunch, snorkelling gear and instruction included.</p>
-          </div>
-          <div class="oitem">
-            <b>Helicopter landing on Vlasoff Cay</b> <span class="dur">4–5 hours</span>
-            <p>Rare bare sandbank in open ocean. Small group, snorkelling and picnic. Premium experience, higher cost.</p>
-          </div>
-        </div>
-      </div>
-      <div class="links"><a class="lk" href="https://passions.com.au/great-barrier-reef-tours/">Passions of Paradise <span class="pr">A$275 · €165</span></a></div>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> <a href="https://tasmanholidayparks.com/au/cairns/">Tasman Cool Waters</a>, second night.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Fri 16 Oct</span><span class="pl">Atherton Tablelands</span><span class="dr">~200 km · 4 h with stops</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Morning</div><div class="b"><b>Gordonvale → Gillies Range → Atherton</b>
-      <p>19 km and roughly 260 bends, climbing from the coast into the tablelands.</p>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Atherton Tablelands options</b>
-      <p>Scenic inland activities, mostly by car with stops to explore and swim.</p>
-      <div class="opts">
-        <button class="opts-toggle">Activity options ▼</button>
-        <div class="opts-list" style="display:none;">
-          <div class="oitem">
-            <b>Millaa Millaa waterfall circuit</b> <span class="dur">4 hours</span>
-            <p>Scenic loop drive connecting three waterfalls. Stop to swim and bathe in each. Millaa Millaa Falls is the famous one (shampoo advert). Free, no booking.</p>
-          </div>
-          <div class="oitem">
-            <b>Curtain Fig Tree</b> <span class="dur">1 hour</span>
-            <p>500-year-old strangler fig draped across the valley. Short rainforest walk to see it. Unique and iconic.</p>
-          </div>
-          <div class="oitem">
-            <b>Lake Tinaroo scenic drive</b> <span class="dur">flexible</span>
-            <p>Scenic lake views, optional kayaking or picnic. Flexible timing.</p>
-          </div>
-        </div>
-      </div>
-    </div></div>
-    <div class="slot"><div class="w">Evening</div><div class="b"><b>Josephine Falls</b>
-      <p>Natural granite waterslide on the way back down to the coast. Only when water is low —
-      obey the signs, people have died here in high flow.</p>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> <a href="https://www.nrmaparksandresorts.com.au/atherton-tablelands/">NRMA Atherton Tablelands</a>, 141 Herberton Rd.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Sat 17 Oct</span><span class="pl">Mission Beach</span><span class="dr">~130 km · 2 h</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">All day</div><div class="b"><b>Mission Beach activity options</b>
-      <p>Two adrenaline options available, or keep the day relaxed. Choose before the trip.</p>
-      <div class="opts">
-        <button class="opts-toggle">Activity options ▼</button>
-        <div class="opts-list" style="display:none;">
-          <div class="oitem">
-            <b>Skydive Mission Beach</b> <span class="dur">half day</span>
-            <p>Australia's highest tandem jump (15,000 ft), only one landing on a beach. 60 seconds of freefall over the reef. Morning slot best for weather.</p>
-            <div class="links"><a class="lk" href="https://www.skydive.com.au/locations/mission-beach/">Skydive Mission Beach <span class="pr">A$379+ · €230+</span></a></div>
-          </div>
-          <div class="oitem">
-            <b>Tully River rafting</b> <span class="dur">full day</span>
-            <p>Grade 3–4 rapids, pickup an hour away. Dam-released so water guaranteed year-round. A$35 river levy on the day. Can't combine with skydive.</p>
-            <div class="links"><a class="lk" href="https://www.ragingthunder.com.au/tully-river-rafting">Raging Thunder <span class="pr">A$184+ · €110+</span></a></div>
-          </div>
-        </div>
-      </div>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> <a href="https://www.missionbeachcampingandcaravanpark.com.au/">Mission Beach Camping & Caravan Park</a>, 53 Porter Promenade.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Sun 18 Oct</span><span class="pl">→ Townsville → Magnetic Island</span><span class="dr">240 km · 3 h + ferry</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Morning</div><div class="b"><b>Mission Beach → Townsville</b>
-      <p>Break at Cardwell for the view across to Hinchinbrook Island.</p>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>SeaLink to Magnetic Island</b>
-      <p>20 minutes, up to 17 services a day. <b>Leave the van in Townsville</b> — long-stay parking
-      near the terminal, roughly A$18/day. You don't want a vehicle on the island.</p>
-      <div class="links"><a class="lk" href="https://www.sealink.com.au/magnetic-island/">SeaLink <span class="pr">~A$40 return · €24 return</span></a></div>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> Magnetic Island — Nelly Bay or Horseshoe Bay, twin share.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Mon 19 Oct</span><span class="pl">Magnetic Island → Airlie Beach</span><span class="dr">275 km · 3 h 30 + ferry</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Morning</div><div class="b"><b>Barbie car and the Forts Walk</b>
-      <p>Hire an open-top car and drive the island with the roof off. <b>Tropical Topless has
-      closed</b> — Isle Hire does the equivalent from about A$126.50, a plain hatchback is ~A$74.
-      Check the seat count: four of us may need two cars.</p>
-      <p>The Forts Walk: WWII gun emplacements on the ridge and <b>wild koalas
-      asleep in the gums directly above the track</b>. About 90 minutes return, best early or at
-      dusk. Rock wallabies come down at Geoffrey Bay late afternoon.</p>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Ferry back, drive to Airlie</b>
-      <p>Collect the van in Townsville and head south. Arrive Airlie in the evening.</p>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> <a href="https://tasmanholidayparks.com/au/airlie-beach/">Tasman Holiday Parks Airlie</a> or <a href="https://www.nrmaparksandresorts.com.au/airlie-beach/">NRMA Airlie</a>, in the van. Last van night.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Tue 20 Oct</span><span class="pl">Return van → board the boat</span><span class="dr">departs 14:00</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Morning</div><div class="b"><b>Hand back the van</b>
-      <p>Camperman Airlie, 1/384 Shute Harbour Rd, keys at Whitsunday Adventures reception. Clean it
-      out and refuel first. Same road as Coral Sea Marina, so it's a short walk or five-minute taxi
-      to check-in. No rush — the boat isn't until two.</p>
-      <div class="links"><a class="lk" href="https://www.campermanaustralia.com/campervan-hire-rental-airlie-beach/">Camperman Airlie →</a></div>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Sail from Coral Sea Marina, 14:00</b>
-      <p><b>Two marinas in Airlie.</b> Coral Sea (formerly Abel Point) handles ~80% of on-water tours
-      and almost all overnight boats; Port of Airlie is the other. Your check-in office confirms
-      which — don't assume. <b>Boats do not wait for late guests.</b></p>
-      <p>Small bag aboard only. The rest gets stored at the check-in office — confirm that when
-      booking, since the van's gone by then.</p>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> at anchor, night one.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Wed 21 Oct</span><span class="pl">Whitsundays</span><span class="dr">on the water</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">All day</div><div class="b"><b>Whitehaven and Hill Inlet</b>
-      <p>Seven kilometres of 98% pure silica sand, so fine it doesn't hold heat and you can walk it
-      barefoot at midday. Hill Inlet lookout at the north end for the swirl of white and turquoise.
-      Snorkelling at island fringing reefs between stops.</p>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> at anchor, night two.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Thu 22 Oct</span><span class="pl">Back to Airlie Beach</span><span class="dr">back 12:00 · no driving</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Off the boat, 12:00</b>
-      <p>Collect the stored luggage from the check-in office.</p>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Recover</b>
-      <p>Airlie Beach Lagoon is free and the only safe swimming in town during stinger season.</p>
-    </div></div>
-    <div class="slot"><div class="w">Evening</div><div class="b"><b>The big Airlie night</b>
-      <p>Everyone on that street got off a boat today. <b>Magnums</b> is the engine of it: beer
-      garden on the main street, live bands, pool tables, giant Jenga, cane toad races on Thursdays,
-      A$5 schooners at happy hour. <b>Beaches</b> is where every boat trip ends up afterwards.
-      <b>Paddy's</b> has a full band Friday and Saturday. Last drinks 3am — Airlie is a designated
-      Safe Night Precinct.</p>
-      <p>Thursday is toad race night at Magnums.</p>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> Airlie Beach, in a room. Book it — the van is long gone.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Fri 23 Oct</span><span class="pl">Airlie → Brisbane → Woodfordia · festival day 1</span><span class="dr">flight 1 h 50 + 1 h drive</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Morning</div><div class="b"><b>Transfer to Proserpine</b>
-      <p>Whitsunday Coast Airport (PPP) is 40 minutes inland from Airlie. Book the Whitsunday Transit
-      shuttle or a taxi <b>the day before</b>, not on the morning. Take the earliest flight going —
-      everything downstream depends on it.</p>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Land Brisbane, get moving north</b>
-      <p>Whatever we settle on for transport. No shopping stop needed — tents are pre-built and
-      waiting at the site.</p>
-    </div></div>
-    <div class="slot"><div class="w">Afternoon</div><div class="b"><b>Drive up to Woodfordia</b>
-      <p>87 Woodrow Rd, Woodford, about an hour north in the Moreton Bay foothills. <b>The venue
-      moved from Ivory's Rock</b>, so older directions online are wrong.</p>
-      <p>The official EFF Express shuttle page currently 404s and the timetable circulating online is
-      last year's — don't build anything on it.</p>
-      <div class="links"><a class="lk" href="https://www.earthfrequency.com.au/festival-faq">Festival FAQ →</a></div>
-    </div></div>
-    <div class="slot"><div class="w">Evening</div><div class="b"><b>Straight in</b>
-      <p>Bring your own food — it's allowed and festival meals run A$18–25.</p>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> Woodfordia.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Sat 24 Oct</span><span class="pl">Earth Frequency · festival day 2</span><span class="dr">no driving</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">All day</div><div class="b"><b>The one full day</b>
-      <p>Electronic and live music across multiple stages, art installations through the trees,
-      artisan markets, workshops. Four-day festival; we're here for two.</p>
-    </div></div>
-    <div class="sleep"><b>Sleep:</b> Woodfordia, second night.</div>
-  </div>
-</div>
-
-<div class="day">
-  <div class="dhead"><span class="dt">Sun 25 Oct</span><span class="pl">Festival → Brisbane → Madrid</span><span class="dr">~1 h drive</span></div>
-  <div class="dbody">
-    <div class="slot"><div class="w">Morning</div><div class="b"><b>Leave the festival</b>
-      <p>All four of us drive back down to Brisbane, about an hour.</p>
-    </div></div>
-    <div class="slot"><div class="w">Evening</div><div class="b"><b>Fly Brisbane → Madrid</b>
-      <p>Landing Monday the 26th. Whatever we use to get up on the Friday has to bring four of us
-      plus bags back down in time for an international departure.</p>
-    </div></div>
-  </div>
-</div>
+<p class="note">International flights on top. The skydive is optional and adds A$580 · €350.
+Optional activities on the <a href="./itinerary/">day-by-day page</a> are not in this total.</p>
 
 <hr>
 <h2>Still to pin down</h2>
 <table>
   <thead><tr><th>Item</th><th>What's needed</th></tr></thead>
   <tbody>
+    <tr><td>Frodo confirming</td><td>Blocks the van booking, which is the only item with real deadline pressure.</td></tr>
+    <tr><td>Boat price</td><td>Sabas booked it. The A$700 above is a placeholder.</td></tr>
     <tr><td>Luggage while aboard</td><td>Where two weeks of gear goes on the 20th–22nd once the van is returned.</td></tr>
     <tr><td>Festival shuttle</td><td>Page is 404. Watch for a 2026 announcement, but the hire car is the plan.</td></tr>
     <tr><td>Campsite fees for four</td><td>Most parks price a site for two and add A$10–15 per extra adult, so campsites will not simply halve per head.</td></tr>
@@ -654,13 +271,12 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
 </table>
 
 <footer>Updated 31 August 2026. Verified: Camperman quote, Earth Frequency ticket, skydive base price,
-Passions of Paradise fare, Queensland licence rules. Everything else indicative.</footer>
+Passions of Paradise fare and sailing times, Queensland licence rules. Everything else indicative.</footer>
 
 </div>
 
 <script>
 (function(){
-  // Booking checklist
   var KEY = 'qld-booking-2026';
   var boxes = document.querySelectorAll('#booking input[type=checkbox]');
   var prog  = document.getElementById('prog');
@@ -691,20 +307,6 @@ Passions of Paradise fare, Queensland licence rules. Everything else indicative.
     });
   });
   paint();
-
-  // Activity options toggles
-  document.querySelectorAll('.opts-toggle').forEach(function(button){
-    button.addEventListener('click', function(){
-      var list = this.nextElementSibling;
-      if (list.style.display === 'none') {
-        list.style.display = 'block';
-        this.textContent = this.textContent.replace('▼', '▲');
-      } else {
-        list.style.display = 'none';
-        this.textContent = this.textContent.replace('▲', '▼');
-      }
-    });
-  });
 })();
 </script>
 </body>
