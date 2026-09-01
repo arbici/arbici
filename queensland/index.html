@@ -117,6 +117,11 @@
              background:var(--wash);color:var(--light);margin-left:4px;white-space:nowrap}
   .connbadge.live{background:var(--gobg);border-color:#c8ded9;color:var(--go)}
   .connbadge.down{background:var(--warnbg);border-color:#f0d3c5;color:var(--warn)}
+  #booking.locked{opacity:.55}
+  #booking.locked input[type=checkbox]{cursor:not-allowed}
+  .shout{background:var(--warnbg);border:1px solid #f0d3c5;border-left:3px solid var(--warn);
+         border-radius:6px;padding:12px 15px;font-size:13.5px;color:#7d3416;margin:12px 0 0;
+         font-weight:600}
   .total{background:var(--paper);border:1px solid var(--line);border-radius:7px;
          overflow:hidden;margin:18px 0 0}
   .total .tl{display:flex;justify-content:space-between;gap:16px;padding:10px 16px;
@@ -355,8 +360,11 @@ const T = {
   all:  {es:'hechas. Eso es todo.', en:'done. That is everything.'},
   some: {es:'hechas.',              en:'done.'},
   live: {es:'compartido, se guarda al momento', en:'shared, saving live'},
-  wait: {es:'conectando…',                     en:'connecting…'},
-  down: {es:'sin conexión, no se guarda',      en:'offline, not saving'}
+  wait: {es:'conectando…',                      en:'connecting…'},
+  down: {es:'sin conexión, no se guarda',       en:'offline, not saving'},
+  denied:{es:'la base de datos rechaza los cambios', en:'database is refusing writes'},
+  blocked:{es:'Tu cambio no se ha guardado. La base de datos lo ha rechazado, no es tu conexión. Avisa a Javi: faltan permisos sobre /bookings en las reglas de Firebase.',
+           en:'Your change was not saved. The database refused it, this is not your connection. Tell Javi: the Firebase rules are missing permissions for /bookings.'}
 };
 const lang = () => document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'es';
 const t = k => T[k][lang()];
@@ -388,6 +396,28 @@ function paint(){
 function status(kind, text){
   conn.className = 'connbadge ' + kind;
   conn.textContent = text;
+  // Only allow ticking once we are genuinely connected. A click before that
+  // used to be silently reverted, which looks identical to it having worked.
+  const ready = kind === 'live';
+  boxes.forEach(b => { b.disabled = !ready; });
+  document.getElementById('booking').classList.toggle('locked', !ready);
+}
+
+function isDenied(e){
+  const c = ((e && (e.code || e.message)) || '').toString().toUpperCase();
+  return c.includes('PERMISSION') || c.includes('DENIED');
+}
+
+function shout(msg){
+  let el = document.getElementById('shout');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'shout';
+    el.className = 'shout';
+    document.querySelector('#booking').insertAdjacentElement('afterend', el);
+  }
+  el.textContent = msg;
+  el.scrollIntoView({behavior:'smooth', block:'center'});
 }
 
 boxes.forEach(b => b.addEventListener('change', async () => {
@@ -398,7 +428,14 @@ boxes.forEach(b => b.addEventListener('change', async () => {
   try {
     const r = api.ref(db, 'bookings/' + k);
     on ? await api.set(r, true) : await api.remove(r);
-  } catch(e){ status('down', t('down')); }
+  } catch(e){
+    // The click did not stick. Put the box back rather than showing a tick nobody else has.
+    delete state[k];
+    b.checked = !on;
+    paint();
+    if (isDenied(e)) { status('down', t('denied')); shout(t('blocked')); }
+    else             { status('down', t('down')); }
+  }
 }));
 
 document.querySelectorAll('.langsel button').forEach(b => b.onclick = () => {
@@ -440,7 +477,8 @@ if (!conn_) {
     live = true;
     status('live', t('live'));
     paint();
-  }, () => status('down', t('down')));
+  }, err => { if (isDenied(err)) { status('down', t('denied')); shout(t('blocked')); }
+                else status('down', t('down')); });
 }
 </script>
 </body>
