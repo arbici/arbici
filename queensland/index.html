@@ -96,6 +96,12 @@
   tr.done td{opacity:.42}
   tr.done .wht b,tr.done .wht a{text-decoration:line-through}
   .wht small{display:block;color:var(--mid);font-size:12.4px;margin-top:2px;line-height:1.4}
+  .stay{display:inline-block;margin-top:4px;font-size:12.4px;font-weight:600;color:var(--ink);
+        background:var(--wash);border:1px solid var(--line);border-radius:4px;padding:2px 8px;
+        font-variant-numeric:tabular-nums}
+  .stay .arrow{color:var(--light);margin:0 3px}
+  .stay .n{color:var(--mid);font-weight:400}
+  tr.done .stay{text-decoration:line-through}
   .dri{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:100px;
        background:var(--wash);border:1px solid var(--line);white-space:nowrap}
   .dri.javi{background:#eef7f5;border-color:#c8ded9;color:#0f7a6e}
@@ -173,20 +179,6 @@
   <span class="arw">→</span>
 </a>
 
-<div class="flag" data-l="es"><b>Furgoneta sin reservar.</b> Javi la reserva en cuanto sepamos si somos tres o cuatro. Camperman, 10 días, Cairns → Airlie. Siendo cuatro, dos Juliette 3 a 1.770 A$ cada una. Siendo tres, una Paradise Family 5 por 1.930 A$.</div>
-<div class="flag" data-l="en"><b>Van not booked.</b> Javi books it as soon as we know whether we are three or four. Camperman, 10 days, Cairns → Airlie. At four, two Juliette 3 at A$1,770 each. At three, one Paradise Family 5 at A$1,930.</div>
-
-<div class="flag" data-l="es"><b>Barco de los Whitsundays sin reservar.</b> Todo lo demás está montado alrededor: la furgoneta se devuelve la mañana del 20, la habitación de Airlie es la noche del 22 y el vuelo de Proserpine es el 23. Esas tres fechas se mueven si se mueve el barco. Octubre es temporada media, pero los barcos sociales de 18 a 35 son los que primero se llenan, así que conviene hacerlo antes que los operadores pequeños.</div>
-<div class="flag" data-l="en"><b>Whitsundays boat not booked.</b> Everything else is built around it: the van goes back the morning of the 20th, the Airlie room is the night of the 22nd, and the Proserpine flight is the 23rd. Those three dates move if the boat does. October is shoulder season but the 18–35 social boats are the ones that fill first, so this is worth doing before the small operators.</div>
-
-<div class="flag" data-l="es"><b>Abierto: no tenemos forma de ir de Brisbane a Woodfordia.</b> Son unos 70 km, más o menos una hora. La página oficial de la lanzadera EFF Express da error 404 y el horario que circula por internet es del año pasado, así que puede haber servicio en 2026 o no haberlo. Las opciones son coche de alquiler desde el aeropuerto de Brisbane (~55 A$/día, unos 55 A$ cada uno en cuatro días entre cuatro), tren a Caboolture más autobús local y taxi, o un Uber, entre 130 y 180 A$ por trayecto, que entre cuatro salen unos 40 A$ por cabeza. <b>Nadie ha reservado nada.</b></div>
-<div class="flag" data-l="en"><b>Open: we have no way of getting from Brisbane to Woodfordia.</b>
-It is roughly 70 km, about an hour. The official EFF Express shuttle page currently returns a 404 and
-the timetable circulating online is last year's, so there may or may not be a 2026 service. Options
-are a hire car from Brisbane airport (~A$55/day, about A$55 each over four days split four ways),
-train to Caboolture plus a local bus and a taxi, or an Uber — roughly A$130–180 each way, which
-split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
-
 <h2><span data-l="es">La ruta</span><span data-l="en">The route</span></h2>
 <table>
   <thead><tr><th><span data-l="es">Fecha</span><span data-l="en">Date</span></th><th><span data-l="es">Dónde</span><span data-l="en">Where</span></th><th><span data-l="es">Noches</span><span data-l="en">Nights</span></th></tr></thead>
@@ -223,8 +215,8 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
 
     <tr><td class="chk"><input type="checkbox" data-k="van"></td>
       <td class="wht"><a href="https://www.campermanaustralia.com/" target="_blank" rel="noopener"><span data-l="es">Autocaravana, 10 días</span><span data-l="en">Campervan, 10 days</span></a>
-        <small><span data-l="es">Cairns 11 oct → Airlie 20 oct. Dos Juliette 3 si somos cuatro, una Paradise Family 5 si somos tres. El desglose está en el aviso de arriba. Se reserva en cuanto se cierre cuántos somos</span><span data-l="en">Cairns 11 Oct → Airlie 20 Oct. Two Juliette 3 at four, one Paradise Family 5 at three. Breakdown in the note above. Books once the headcount is settled</span></small></td>
-      <td class="num">A$643–885<small>€386–530</small></td><td><span class="dri javi">Javi</span></td><td><span class="pri p1"><span data-l="es">Primero</span><span data-l="en">First</span></span></td></tr>
+        <small><span data-l="es">Reservada. Recogida en Cairns el 11 oct, entrega en Airlie el 20 oct. Fianza de 500 A$ con tarjeta de crédito al recogerla</span><span data-l="en">Booked. Pick up Cairns 11 Oct, hand back Airlie Beach 20 Oct. A$500 bond on a credit card at pickup</span></small></td>
+      <td class="num">A$643–885<small>€386–530</small></td><td><span class="dri javi">Javi</span></td><td><span class="pri pok"><span data-l="es">Reservado</span><span data-l="en">Booked</span></span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="fest"></td>
       <td class="wht"><a href="https://events.humanitix.com/earth-frequency-festival-2026/tickets" target="_blank" rel="noopener"><span data-l="es">Entradas de Earth Frequency</span><span data-l="en">Earth Frequency tickets</span></a>
@@ -233,8 +225,8 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
 
     <tr><td class="chk"><input type="checkbox" data-k="boat"></td>
       <td class="wht"><a href="https://sailing-whitsundays.com/tours/backpackers-18-35" target="_blank" rel="noopener"><span data-l="es">Barco Whitsundays, 2 días 2 noches</span><span data-l="en">Whitsundays boat, 2D/2N</span></a>
-        <small><span data-l="es">Sin reservar. La idea es salir el 20 oct a las 14:00 y volver el 22 oct a las 12:00. Hay que preguntar dónde se queda el equipaje mientras estamos a bordo, porque para entonces la furgoneta ya no está</span><span data-l="en">Not booked. Target is out 20 Oct 14:00, back 22 Oct 12:00. Ask where luggage goes while we're aboard, since the van is gone by then</span></small></td>
-      <td class="num">~A$700<small>€420</small></td><td><span class="dri sabas">Sabas</span></td><td><span class="pri p1"><span data-l="es">Primero</span><span data-l="en">First</span></span></td></tr>
+        <small><span data-l="es">Reservado. Salida el 20 oct a las 14:00, vuelta el 22 oct a las 12:00. Falta preguntar dónde se queda el equipaje mientras estamos a bordo, porque para entonces la furgoneta ya no está</span><span data-l="en">Booked. Out 20 Oct 14:00, back 22 Oct 12:00. Still to ask where luggage goes while we're aboard, since the van is gone by then</span></small></td>
+      <td class="num">~A$700<small>€420</small></td><td><span class="dri sabas">Sabas</span></td><td><span class="pri pok"><span data-l="es">Reservado</span><span data-l="en">Booked</span></span></td></tr>
 
     <tr><td class="chk"></td>
       <td class="wht"><b><span data-l="es">Vuelos</span><span data-l="en">Flights</span></b>
@@ -247,32 +239,39 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
       <td class="num">A$275<small>€165</small></td><td><span class="dri javi">Javi</span></td><td><span class="pri p2"><span data-l="es">Pronto</span><span data-l="en">Soon</span></span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="bnecar"></td>
-      <td class="wht"><b><span data-l="es">Transporte Brisbane → Woodfordia</span><span data-l="en">Brisbane → Woodfordia transport</span></b> <span class="opt"><span data-l="es">Sin decidir</span><span data-l="en">Undecided</span></span>
-        <small><span data-l="es">Nada reservado. Coche de alquiler por unos 55 A$/día recogido el 23 oct, tren más autobús más taxi, o Uber. Tiene que llevar a cuatro personas con equipaje de vuelta el domingo</span><span data-l="en">Nothing booked. Hire car ~A$55/day picked up 23 Oct, train plus bus plus taxi, or Uber. Needs to carry four plus bags back on the Sunday</span></small></td>
-      <td class="num">A$40–60<small>€25–35</small></td><td><span class="dri nico">Nico</span></td><td><span class="pri p2"><span data-l="es">Pronto</span><span data-l="en">Soon</span></span></td></tr>
+      <td class="wht"><b><span data-l="es">Coche de alquiler Brisbane → Woodfordia</span><span data-l="en">Brisbane → Woodfordia hire car</span></b>
+        <small><span data-l="es">Reservado. Se recoge en Brisbane el 23 oct y se devuelve en Brisbane el 25 oct. Unos 70 km por trayecto, más o menos una hora</span><span data-l="en">Booked. Picked up in Brisbane 23 Oct, back in Brisbane 25 Oct. Roughly 70 km each way, about an hour</span></small></td>
+      <td class="num">A$40–60<small>€25–35</small></td><td><span class="dri nico">Nico</span></td><td><span class="pri pok"><span data-l="es">Reservado</span><span data-l="en">Booked</span></span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="beds"></td>
-      <td class="wht"><b><span data-l="es">Camas: Magnetic Island 18 oct, Airlie Beach 22 oct</span><span data-l="en">Beds: Magnetic Island 18 Oct, Airlie Beach 22 Oct</span></b>
+      <td class="wht"><b><span data-l="es">Camas: Magnetic Island y Airlie Beach</span><span data-l="en">Beds: Magnetic Island and Airlie Beach</span></b>
+        <span class="stay"><span data-l="es">Magnetic Island: entrada dom 18 oct<span class="arrow">→</span>salida lun 19 oct <span class="n">· 1 noche</span></span><span data-l="en">Magnetic Island: check in Sun 18 Oct<span class="arrow">→</span>check out Mon 19 Oct <span class="n">· 1 night</span></span></span>
+        <span class="stay"><span data-l="es">Airlie Beach: entrada jue 22 oct<span class="arrow">→</span>salida vie 23 oct <span class="n">· 1 noche</span></span><span data-l="en">Airlie Beach: check in Thu 22 Oct<span class="arrow">→</span>check out Fri 23 Oct <span class="n">· 1 night</span></span></span>
         <small><span data-l="es">Ahora son <b>dos habitaciones dobles</b> cada noche. La de Airlie es la noche de bajar del barco: habitaciones, no literas</span><span data-l="en"><b>Two twin rooms</b> each night now. The Airlie one is the night off the boat — rooms, not dorms</span></small></td>
       <td class="num">~A$145<small>€87</small></td><td><span class="dri sabas">Sabas</span></td><td><span class="pri p2"><span data-l="es">Pronto</span><span data-l="en">Soon</span></span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="camp-cape"></td>
-      <td class="wht"><b><span data-l="es">Camping: Cape Tribulation, 3 noches (11–13 oct)</span><span data-l="en">Campsite: Cape Tribulation, 3 nights (11–13 Oct)</span></b>
+      <td class="wht"><b><span data-l="es">Camping: Cape Tribulation</span><span data-l="en">Campsite: Cape Tribulation</span></b>
+        <span class="stay"><span data-l="es">Entrada dom 11 oct<span class="arrow">→</span>salida mié 14 oct <span class="n">· 3 noches</span></span><span data-l="en">Check in Sun 11 Oct<span class="arrow">→</span>check out Wed 14 Oct <span class="n">· 3 nights</span></span></span>
         <small><span data-l="es"><a href="https://www.capetribcamping.com.au/" target="_blank" rel="noopener">Cape Trib Camping</a> está en primera línea de playa y es el camping principal. Reservar con antelación, octubre es temporada alta. Alternativa: <a href="https://www.pksjunglevillage.com.au/" target="_blank" rel="noopener">PK's Jungle Village</a></span><span data-l="en"><a href="https://www.capetribcamping.com.au/" target="_blank" rel="noopener">Cape Trib Camping</a> is beachfront and the main facility. Book ahead — October is peak season. Alternative: <a href="https://www.pksjunglevillage.com.au/" target="_blank" rel="noopener">PK's Jungle Village</a></span></small></td>
       <td class="num">~A$60<small>€36</small></td><td><span class="dri javi">Javi</span></td><td><span class="pri p1"><span data-l="es">Primero</span><span data-l="en">First</span></span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="camp-cairns-atherton"></td>
-      <td class="wht"><b><span data-l="es">Campings: Cairns + Atherton, 3 noches (14–16 oct)</span><span data-l="en">Campsites: Cairns + Atherton, 3 nights (14–16 Oct)</span></b>
+      <td class="wht"><b><span data-l="es">Campings: Cairns + Atherton</span><span data-l="en">Campsites: Cairns + Atherton</span></b>
+        <span class="stay"><span data-l="es">Cairns: entrada mié 14 oct<span class="arrow">→</span>salida vie 16 oct <span class="n">· 2 noches</span></span><span data-l="en">Cairns: check in Wed 14 Oct<span class="arrow">→</span>check out Fri 16 Oct <span class="n">· 2 nights</span></span></span>
+        <span class="stay"><span data-l="es">Atherton: entrada vie 16 oct<span class="arrow">→</span>salida sáb 17 oct <span class="n">· 1 noche</span></span><span data-l="en">Atherton: check in Fri 16 Oct<span class="arrow">→</span>check out Sat 17 Oct <span class="n">· 1 night</span></span></span>
         <small><span data-l="es">Cairns (14–15): <a href="https://tasmanholidayparks.com/au/cairns/" target="_blank" rel="noopener">Tasman Cool Waters</a>, a 7 min del Esplanade. Atherton (16): <a href="https://www.nrmaparksandresorts.com.au/atherton-tablelands/" target="_blank" rel="noopener">NRMA Atherton Tablelands</a>, 141 Herberton Rd. Reservar con una semana</span><span data-l="en">Cairns (14–15): <a href="https://tasmanholidayparks.com/au/cairns/" target="_blank" rel="noopener">Tasman Cool Waters</a>, 7 min from the Esplanade. Atherton (16): <a href="https://www.nrmaparksandresorts.com.au/atherton-tablelands/" target="_blank" rel="noopener">NRMA Atherton Tablelands</a>, 141 Herberton Rd. Book a week ahead</span></small></td>
       <td class="num">~A$75<small>€45</small></td><td><span class="dri sabas">Sabas</span></td><td><span class="pri p2"><span data-l="es">Pronto</span><span data-l="en">Soon</span></span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="camp-mission"></td>
-      <td class="wht"><b><span data-l="es">Camping: Mission Beach, 1 noche (17 oct)</span><span data-l="en">Campsite: Mission Beach, 1 night (17 Oct)</span></b>
+      <td class="wht"><b><span data-l="es">Camping: Mission Beach</span><span data-l="en">Campsite: Mission Beach</span></b>
+        <span class="stay"><span data-l="es">Entrada sáb 17 oct<span class="arrow">→</span>salida dom 18 oct <span class="n">· 1 noche</span></span><span data-l="en">Check in Sat 17 Oct<span class="arrow">→</span>check out Sun 18 Oct <span class="n">· 1 night</span></span></span>
         <small><span data-l="es"><a href="https://www.missionbeachcampingandcaravanpark.com.au/" target="_blank" rel="noopener">Mission Beach Camping &amp; Caravan Park</a>, 53 Porter Promenade. 50 parcelas frente al mar, con y sin electricidad. Reservar con una semana</span><span data-l="en"><a href="https://www.missionbeachcampingandcaravanpark.com.au/" target="_blank" rel="noopener">Mission Beach Camping &amp; Caravan Park</a>, 53 Porter Promenade. 50 beachfront sites, powered and unpowered. Book a week ahead</span></small></td>
       <td class="num">~A$28<small>€17</small></td><td><span class="dri frodo">Frodo</span></td><td><span class="pri p2"><span data-l="es">Pronto</span><span data-l="en">Soon</span></span></td></tr>
 
     <tr><td class="chk"><input type="checkbox" data-k="camp-airlie"></td>
-      <td class="wht"><b><span data-l="es">Camping: Airlie Beach, 1 noche (19 oct)</span><span data-l="en">Campsite: Airlie Beach, 1 night (19 Oct)</span></b>
+      <td class="wht"><b><span data-l="es">Camping: Airlie Beach</span><span data-l="en">Campsite: Airlie Beach</span></b>
+        <span class="stay"><span data-l="es">Entrada lun 19 oct<span class="arrow">→</span>salida mar 20 oct <span class="n">· 1 noche</span></span><span data-l="en">Check in Mon 19 Oct<span class="arrow">→</span>check out Tue 20 Oct <span class="n">· 1 night</span></span></span>
         <small><span data-l="es"><a href="https://tasmanholidayparks.com/au/airlie-beach/" target="_blank" rel="noopener">Tasman Airlie</a> o <a href="https://www.nrmaparksandresorts.com.au/airlie-beach/" target="_blank" rel="noopener">NRMA Airlie</a>. La furgoneta se devuelve a la mañana siguiente, así que esta es flexible</span><span data-l="en"><a href="https://tasmanholidayparks.com/au/airlie-beach/" target="_blank" rel="noopener">Tasman Airlie</a> or <a href="https://www.nrmaparksandresorts.com.au/airlie-beach/" target="_blank" rel="noopener">NRMA Airlie</a>. Van goes back the next morning, so this one is flexible</span></small></td>
       <td class="num">~A$35<small>€21</small></td><td><span class="dri sabas">Sabas</span></td><td><span class="pri p2"><span data-l="es">Pronto</span><span data-l="en">Soon</span></span></td></tr>
 
@@ -337,10 +336,9 @@ split four ways is about A$40 a head. <b>Nobody has booked anything.</b></div>
 <table>
   <thead><tr><th><span data-l="es">Asunto</span><span data-l="en">Item</span></th><th><span data-l="es">Qué hace falta</span><span data-l="en">What's needed</span></th></tr></thead>
   <tbody>
-    <tr><td><span data-l="es">Tres o cuatro</span><span data-l="en">Three or four</span></td><td><span data-l="es">La furgoneta es la única reserva que cambia según cuántos seamos. Todo lo demás funciona igual.</span><span data-l="en">The van is the only booking that changes with the headcount. Everything else works either way.</span></td></tr>
-    <tr><td><span data-l="es">Precio del barco</span><span data-l="en">Boat price</span></td><td><span data-l="es">Sin reservar, así que los 700 A$ son orientativos hasta tener un presupuesto real.</span><span data-l="en">Not booked, so the A$700 is a placeholder until there is a real quote.</span></td></tr>
+    <tr><td><span data-l="es">Precio del barco</span><span data-l="en">Boat price</span></td><td><span data-l="es">Ya reservado, pero la tabla sigue con los 700 A$ orientativos. Sustituirlos por el importe real.</span><span data-l="en">Booked, but the table still carries the ~A$700 placeholder. Replace it with the real figure.</span></td></tr>
+    <tr><td><span data-l="es">Precio de la furgoneta</span><span data-l="en">Van price</span></td><td><span data-l="es">Ya reservada, pero la tabla sigue con la horquilla de 643–885 A$. Sustituirla por el importe real.</span><span data-l="en">Booked, but the table still carries the A$643–885 quote range. Replace it with the real figure.</span></td></tr>
     <tr><td><span data-l="es">Equipaje mientras navegamos</span><span data-l="en">Luggage while aboard</span></td><td><span data-l="es">Dónde van dos semanas de equipaje del 20 al 22, una vez devuelta la furgoneta.</span><span data-l="en">Where two weeks of gear goes on the 20th–22nd once the van is returned.</span></td></tr>
-    <tr><td><span data-l="es">Lanzadera del festival</span><span data-l="en">Festival shuttle</span></td><td><span data-l="es">La página da error 404. Estar atentos a un anuncio para 2026, pero el plan es el coche de alquiler.</span><span data-l="en">Page is 404. Watch for a 2026 announcement, but the hire car is the plan.</span></td></tr>
     <tr><td><span data-l="es">Precio de camping siendo cuatro</span><span data-l="en">Campsite fees for four</span></td><td><span data-l="es">La mayoría de campings cobran la parcela para dos y añaden entre 10 y 15 A$ por adulto extra, así que el precio por cabeza no baja a la mitad sin más.</span><span data-l="en">Most parks price a site for two and add A$10–15 per extra adult, so campsites will not simply halve per head.</span></td></tr>
   </tbody>
 </table>
